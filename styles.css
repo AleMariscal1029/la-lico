@@ -1,0 +1,18 @@
+/* Animaciones personalizadas para efectos premium */
+.hover-scale {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-scale:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+.fade-in {
+    animation: fadeIn 1s ease-in;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.slide-transition {
+    transition: opacity 0.5s ease-in-out;
+}
