@@ -76,6 +76,225 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     this.reset();
 });
 
+// Mapeo de códigos de promoción a productos disponibles
+const promoCodeProducts = {
+    'ADICTIVA-2024-A5F9': {
+        name: 'Promoción Adictiva 2024',
+        products: [
+            { name: 'Whisky Premium 12 años', image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' },
+            { name: 'Ron Añejo 10 años', image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' },
+            { name: 'Gin Premium', image: 'https://images.unsplash.com/photo-1551538827-9c037cb4f32a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' }
+        ]
+    },
+    'ADICTIVA-5678-K2L8': {
+        name: 'Descuento 50% Tragos',
+        products: [
+            { name: 'Mojito Clásico', image: 'https://images.unsplash.com/photo-1551538827-9c037cb4f32a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' },
+            { name: 'Margarita', image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' },
+            { name: 'Daiquiri Fresa', image: 'https://images.unsplash.com/photo-1551538827-9c037cb4f32a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' },
+            { name: 'Piña Colada', image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' }
+        ]
+    },
+    'ADICTIVA-9012-M3R6': {
+        name: 'Regalo Premium Adictiva',
+        products: [
+            { name: 'Vodka Premium', image: 'https://images.unsplash.com/photo-1551538827-9c037cb4f32a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' },
+            { name: 'Tequila Gold', image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' },
+            { name: 'Vino Tinto Reserva', image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' }
+        ]
+    },
+    'ADICTIVA-3456-N7P2': {
+        name: 'Oferta Especial Adictiva',
+        products: [
+            { name: 'Martini Dry', image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' },
+            { name: 'Cosmopolitan', image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' },
+            { name: 'Whisky Premium 12 años', image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' }
+        ]
+    },
+    'ADICTIVA-7890-Q1T5': {
+        name: 'Colección Elite Adictiva',
+        products: [
+            { name: 'Ron Añejo 10 años', image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' },
+            { name: 'Gin Premium', image: 'https://images.unsplash.com/photo-1551538827-9c037cb4f32a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' },
+            { name: 'Vodka Premium', image: 'https://images.unsplash.com/photo-1551538827-9c037cb4f32a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' },
+            { name: 'Mojito Clásico', image: 'https://images.unsplash.com/photo-1551538827-9c037cb4f32a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' }
+        ]
+    }
+};
+
+// Variables globales para el modal
+let currentPromoCode = null;
+let selectedProductGlobal = null;
+
+// Manejar envío del formulario de código
+function handlePromoSubmit(event) {
+    event.preventDefault();
+    
+    const promoCode = document.getElementById('promoCode').value.trim().toUpperCase();
+    
+    // Validar que no esté vacío
+    if (!promoCode) {
+        Swal.fire({
+            icon: 'warning',
+            title: '⚠️ Código vacío',
+            text: 'Por favor ingresa un código de descuento.',
+            background: '#0d7377',
+            color: '#fbbf24',
+            confirmButtonColor: '#fbbf24'
+        });
+        return;
+    }
+    
+    // Validar que el código exista
+    if (!promoCodeProducts[promoCode]) {
+        Swal.fire({
+            icon: 'error',
+            title: '❌ Código inválido',
+            text: 'El código ingresado no existe o ha expirado.\n\nCódigos válidos: ADICTIVA-2024-A5F9, ADICTIVA-5678-K2L8, ADICTIVA-9012-M3R6',
+            background: '#0d7377',
+            color: '#fbbf24',
+            confirmButtonColor: '#fbbf24'
+        });
+        return;
+    }
+    
+    // Código válido - abrir modal con productos
+    currentPromoCode = promoCode;
+    openProductsModal(promoCode);
+}
+
+// Abrir modal con productos disponibles
+function openProductsModal(promoCode) {
+    const promoData = promoCodeProducts[promoCode];
+    const container = document.getElementById('productsContainer');
+    
+    // Limpiar y generar tarjetas de productos
+    container.innerHTML = '';
+    
+    promoData.products.forEach(product => {
+        const card = document.createElement('div');
+        card.className = 'bg-dark-burgundy rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform border-2 border-gold product-option';
+        card.onclick = () => selectProductFromModal(product.name);
+        
+        card.innerHTML = `
+            <img src="${product.image}" alt="${product.name}" class="w-full h-32 object-cover">
+            <div class="p-4 text-center">
+                <p class="text-gold font-bold">${product.name}</p>
+            </div>
+        `;
+        
+        container.appendChild(card);
+    });
+    
+    // Limpiar datos anteriores
+    document.getElementById('customerName').value = '';
+    document.getElementById('customerPhone').value = '';
+    selectedProductGlobal = null;
+    
+    // Mostrar modal
+    document.getElementById('productsModal').classList.remove('hidden');
+}
+
+// Seleccionar producto del modal
+function selectProductFromModal(productName) {
+    selectedProductGlobal = productName;
+    
+    // Destacar la tarjeta seleccionada
+    document.querySelectorAll('.product-option').forEach(card => {
+        card.classList.remove('ring-4', 'ring-gold');
+        if (card.querySelector('p').textContent === productName) {
+            card.classList.add('ring-4', 'ring-gold');
+        }
+    });
+}
+
+// Confirmar canje
+function confirmRedemption() {
+    const customerName = document.getElementById('customerName').value.trim();
+    const customerPhone = document.getElementById('customerPhone').value.trim();
+    
+    // Validar nombre
+    if (!customerName) {
+        Swal.fire({
+            icon: 'warning',
+            title: '⚠️ Nombre requerido',
+            text: 'Por favor ingresa tu nombre completo.',
+            background: '#0d7377',
+            color: '#fbbf24',
+            confirmButtonColor: '#fbbf24'
+        });
+        return;
+    }
+    
+    // Validar teléfono
+    if (!customerPhone) {
+        Swal.fire({
+            icon: 'warning',
+            title: '⚠️ Teléfono requerido',
+            text: 'Por favor ingresa tu número de teléfono.',
+            background: '#0d7377',
+            color: '#fbbf24',
+            confirmButtonColor: '#fbbf24'
+        });
+        return;
+    }
+    
+    // Validar producto seleccionado
+    if (!selectedProductGlobal) {
+        Swal.fire({
+            icon: 'warning',
+            title: '⚠️ Producto no seleccionado',
+            text: 'Por favor selecciona un producto haciendo click en él.',
+            background: '#0d7377',
+            color: '#fbbf24',
+            confirmButtonColor: '#fbbf24'
+        });
+        return;
+    }
+    
+    // ¡Canje exitoso!
+    closeProductsModal();
+    
+    Swal.fire({
+        icon: 'success',
+        title: '🎉 ¡Canje Confirmado!',
+        html: `
+            <div style="text-align: left;">
+                <p style="margin: 10px 0;"><strong>Nombre:</strong> ${customerName}</p>
+                <p style="margin: 10px 0;"><strong>Código:</strong> <span style="color: #fbbf24;">${currentPromoCode}</span></p>
+                <p style="margin: 10px 0;"><strong>Producto Canjeado:</strong> <span style="color: #fbbf24;">${selectedProductGlobal}</span></p>
+                <p style="margin: 10px 0;"><strong>Teléfono:</strong> ${customerPhone}</p>
+                <hr style="margin: 20px 0; border-color: #fbbf24;">
+                <p style="margin: 10px 0;">✓ Tu canje será procesado en 3-5 días hábiles</p>
+            </div>
+        `,
+        background: '#0d7377',
+        color: '#fbbf24',
+        confirmButtonColor: '#fbbf24',
+        confirmButtonText: '¡Excelente!'
+    });
+    
+    // Limpiar formulario principal
+    document.getElementById('promoCode').value = '';
+    document.getElementById('promoCodeForm').reset();
+    
+    // Log para servidor
+    console.log({
+        promoCode: currentPromoCode,
+        selectedProduct: selectedProductGlobal,
+        customerName: customerName,
+        customerPhone: customerPhone,
+        timestamp: new Date().toISOString()
+    });
+}
+
+// Cerrar modal
+function closeProductsModal() {
+    document.getElementById('productsModal').classList.add('hidden');
+    currentPromoCode = null;
+    selectedProductGlobal = null;
+}
+
 // Funciones del Modal
 function openModal(title, price, description) {
     document.getElementById('modalTitle').textContent = title;

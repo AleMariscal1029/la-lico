@@ -49,6 +49,7 @@
                     <a href="#ofertas" class="text-white hover:text-gold transition-colors">Ofertas</a>
                     <a href="#preparaciones" class="text-white hover:text-gold transition-colors">Preparaciones</a>
                     <a href="#crea-tu-licor" class="text-white hover:text-gold transition-colors">Crea tu Licor</a>
+                    <a href="#canjear-codigo" class="text-white hover:text-gold transition-colors">Canjear Código</a>
                     <a href="#comentarios" class="text-white hover:text-gold transition-colors">Comentarios</a>
                     <a href="#contacto" class="text-white hover:text-gold transition-colors">Contacto</a>
                 </div>
@@ -232,9 +233,8 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-4xl md:text-5xl font-bold text-center text-gold mb-12 fade-in">Contáctanos</h2>
             <form id="contactForm" class="bg-dark-burgundy p-8 rounded-lg">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div class="grid grid-cols-1 md:grid-cols-1 gap-6 mb-6">
                     <input type="text" id="name" placeholder="Nombre" class="w-full p-3 bg-deep-black text-white rounded-lg border border-gold focus:outline-none focus:ring-2 focus:ring-gold" required>
-                    <input type="email" id="email" placeholder="Email" class="w-full p-3 bg-deep-black text-white rounded-lg border border-gold focus:outline-none focus:ring-2 focus:ring-gold" required>
                 </div>
                 <input type="tel" id="phone" placeholder="Teléfono" class="w-full p-3 bg-deep-black text-white rounded-lg border border-gold focus:outline-none focus:ring-2 focus:ring-gold mb-6" required>
                 <textarea id="message" placeholder="Mensaje" rows="5" class="w-full p-3 bg-deep-black text-white rounded-lg border border-gold focus:outline-none focus:ring-2 focus:ring-gold mb-6" required></textarea>
@@ -344,6 +344,69 @@
         </div>
     </section>
 
+    <!-- Sección Canjear Código de Promoción -->
+    <section id="canjear-codigo" class="py-20 bg-deep-black">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-5xl md:text-6xl font-bold text-center text-gold mb-4 fade-in">🎁 Canjea tu Código</h2>
+            <p class="text-center text-white mb-16 text-xl font-semibold">Ingresa tu código de descuento y descubre qué licores o tragos puedes obtener</p>
+            
+            <!-- Formulario Principal -->
+            <div class="bg-menta p-8 md:p-12 rounded-2xl shadow-2xl max-w-2xl mx-auto">
+                <form id="promoCodeForm" onsubmit="handlePromoSubmit(event)">
+                    <div class="mb-8">
+                        <label class="block text-deep-black font-bold text-2xl mb-4 text-center">
+                            <i class="fas fa-key text-gold mr-3"></i>Ingresa tu Código de Descuento
+                        </label>
+                        <input type="text" id="promoCode" placeholder="PROMO2024" class="w-full p-5 bg-white text-gold rounded-xl border-2 border-gold focus:outline-none focus:ring-2 focus:ring-deep-black font-bold text-center text-2xl uppercase placeholder-gold" required maxlength="20">
+                        <p class="text-center text-deep-black mt-4 text-sm font-semibold">Ejemplo: ADICTIVA-2024-A5F9, ADICTIVA-5678-K2L8</p>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-gold text-deep-black px-12 py-4 rounded-full font-bold text-xl hover:bg-opacity-80 transition-colors hover:scale-105 transform duration-300 shadow-lg">
+                        <i class="fas fa-search mr-3"></i>Ver Descuentos Disponibles
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de Productos Disponibles -->
+    <div id="productsModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center hidden z-50">
+        <div class="bg-deep-black p-8 rounded-xl max-w-2xl w-full mx-4 max-h-screen overflow-y-auto">
+            <h3 class="text-3xl font-bold text-gold mb-6 text-center">
+                <i class="fas fa-glass-cheers mr-3"></i>Licores y Tragos Disponibles
+            </h3>
+            
+            <div id="productsContainer" class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                <!-- Los productos se generarán aquí con JavaScript -->
+            </div>
+            
+            <!-- Formulario de Datos -->
+            <div id="customerDataForm" class="bg-menta p-6 rounded-lg mb-6">
+                <h4 class="text-xl font-bold text-deep-black mb-4">Completa tus datos</h4>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-gold font-semibold mb-2">Nombre Completo:</label>
+                        <input type="text" id="customerName" placeholder="Tu nombre" class="w-full p-3 bg-white text-gold rounded-lg border-2 border-gold focus:outline-none focus:ring-2 focus:ring-deep-black font-semibold" required>
+                    </div>
+                    <div>
+                        <label class="block text-gold font-semibold mb-2">Teléfono:</label>
+                        <input type="tel" id="customerPhone" placeholder="+1 (555) 123-4567" class="w-full p-3 bg-white text-gold rounded-lg border-2 border-gold focus:outline-none focus:ring-2 focus:ring-deep-black font-semibold" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botones -->
+            <div class="flex space-x-4">
+                <button type="button" onclick="confirmRedemption()" class="flex-1 bg-gold text-deep-black px-6 py-3 rounded-full font-bold text-lg hover:bg-opacity-80 transition-colors">
+                    <i class="fas fa-check mr-2"></i>Confirmar Canje
+                </button>
+                <button type="button" onclick="closeProductsModal()" class="flex-1 bg-burgundy text-white px-6 py-3 rounded-full font-bold text-lg hover:bg-opacity-80 transition-colors">
+                    <i class="fas fa-times mr-2"></i>Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="bg-dark-burgundy py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -356,6 +419,7 @@
                         <li><a href="#ofertas" class="text-white hover:text-gold transition-colors">Ofertas</a></li>
                         <li><a href="#preparaciones" class="text-white hover:text-gold transition-colors">Preparaciones</a></li>
                         <li><a href="#crea-tu-licor" class="text-white hover:text-gold transition-colors">Crea tu Licor</a></li>
+                        <li><a href="#canjear-codigo" class="text-white hover:text-gold transition-colors">Canjear Código</a></li>
                         <li><a href="#comentarios" class="text-white hover:text-gold transition-colors">Comentarios</a></li>
                         <li><a href="#contacto" class="text-white hover:text-gold transition-colors">Contacto</a></li>
                     </ul>
@@ -366,7 +430,7 @@
                         <a href="#" class="text-white hover:text-gold transition-colors"><i class="fab fa-instagram text-2xl"></i></a>
                         <a href="#" class="text-white hover:text-gold transition-colors"><i class="fab fa-facebook text-2xl"></i></a>
                         <a href="#" class="text-white hover:text-gold transition-colors"><i class="fab fa-tiktok text-2xl"></i></a>
-                        <a href="https://wa.me/1234567890" class="text-white hover:text-gold transition-colors"><i class="fab fa-whatsapp text-2xl"></i></a>
+                        <a href="https://wa.me/59176165285" class="text-white hover:text-gold transition-colors"><i class="fab fa-whatsapp text-2xl"></i></a>
                     </div>
                 </div>
                 <div>
