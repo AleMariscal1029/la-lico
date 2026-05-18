@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test de Imágenes - Licorería</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0d7377;
+            color: white;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #fbbf24;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .section {
+            margin-bottom: 50px;
+        }
+        .section h2 {
+            color: #fbbf24;
+            border-bottom: 2px solid #fbbf24;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .image-card {
+            background: #14b8a6;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+        .image-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .image-card h3 {
+            color: #fbbf24;
+            margin: 10px 0 5px 0;
+        }
+        .image-card p {
+            color: white;
+            font-size: 14px;
+            margin: 0;
+        }
+        .status {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        .success {
+            background: #10b981;
+        }
+        .error {
+            background: #ef4444;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🍾 Test de Imágenes - Licorería Adictiva</h1>
+        
+        <div class="section">
+            <h2>📁 Categorías</h2>
+            <div class="grid">
+                <div class="image-card">
+                    <img src="./images/whisky.jpg" alt="Whisky" onerror="this.nextElementSibling.style.display='block'">
+                    <span class="status error" style="display:none">❌ Error</span>
+                    <h3>Whisky</h3>
+                    <p>whisky.jpg</p>
+                </div>
+                <div class="image-card">
+                    <img src="./images/vodka.jpg" alt="Vodka" onerror="this.nextElementSibling.style.display='block'">
+                    <span class="status error" style="display:none">❌ Error</span>
+                    <h3>Vodka</h3>
+                    <p>vodka.jpg</p>
+                </div>
+                <div class="image-card">
+                    <img src="./images/ron.jpg" alt="Ron" onerror="this.nextElementSibling.style.display='block'">
+                    <span class="status error" style="display:none">❌ Error</span>
+                    <h3>Ron</h3>
+                    <p>ron.jpg</p>
+                </div>
+                <div class="image-card">
+                    <img src="./images/gin.jpg" alt="Gin" onerror="this.nextElementSibling.style.display='block'">
+                    <span class="status error" style="display:none">❌ Error</span>
+                    <h3>Gin</h3>
+                    <p>gin.jpg</p>
+                </div>
+                <div class="image-card">
+                    <img src="./images/vino.jpg" alt="Vino" onerror="this.nextElementSibling.style.display='block'">
+                    <span class="status error" style="display:none">❌ Error</span>
+                    <h3>Vino</h3>
+                    <p>vino.jpg</p>
+                </div>
+                <div class="image-card">
+                    <img src="./images/tequila.jpg" alt="Tequila" onerror="this.nextElementSibling.style.display='block'">
+                    <span class="status error" style="display:none">❌ Error</span>
+                    <h3>Tequila</h3>
+                    <p>tequila.jpg</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📦 Productos Premium</h2>
+            <div class="grid">
+                <div class="image-card">
+                    <img src="./images/whisky-premium.jpg" alt="Whisky Premium" onerror="this.nextElementSibling.style.display='block'">
+                    <span class="status error" style="display:none">❌ Error</span>
+                    <h3>Whisky Premium</h3>
+                    <p>whisky-premium.jpg</p>
+                </div>
+                <div class="image-card">
+                    <img src="./images/vodka-premium.jpg" alt="Vodka Premium" onerror="this.nextElementSibling.style.display='block'">
+                    <span class="status error" style="display:none">❌ Error</span>
+                    <h3>Vodka Premium</h3>
+                    <p>vodka-premium.jpg</p>
+                </div>
+                <div class="image-card">
+                    <img src="./images/ron-anejo.jpg" alt="Ron Añejo" onerror="this.nextElementSibling.style.display='block'">
+                    <span class="status error" style="display:none">❌ Error</span>
+                    <h3>Ron Añejo</h3>
+                    <p>ron-anejo.jpg</p>
+                </div>
+                <div class="image-card">
+                    <img src="./images/gin-tonic.webp" alt="Gin Premium" onerror="this.nextElementSibling.style.display='block'">
+                    <span class="status error" style="display:none">❌ Error</span>
+                    <h3>Gin Premium</h3>
+                    <p>gin-premium.jpg</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🍹 Preparaciones</h2>
+            <div class="grid">
+                <div class="image-card">
+                    <img src="./images/mojito.jpg" alt="Mojito" onerror="this.nextElementSibling.style.display='block'">
+                    <span class="status error" style="display:none">❌ Error</span>
+                    <h3>Mojito</h3>
+                    <p>mojito.jpg</p>
+                </div>
+                <div class="image-card">
+                    <img src="./images/martini.jpg" alt="Martini" onerror="this.nextElementSibling.style.display='block'">
+                    <span class="status error" style="display:none">❌ Error</span>
+                    <h3>Martini</h3>
+                    <p>martini.jpg</p>
+                </div>
+                <div class="image-card">
+                    <img src="./images/margarita.jpg" alt="Margarita" onerror="this.nextElementSibling.style.display='block'">
+                    <span class="status error" style="display:none">❌ Error</span>
+                    <h3>Margarita</h3>
+                    <p>margarita.jpg</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px; padding: 20px; background: #14b8a6; border-radius: 10px;">
+            <h2 style="color: #fbbf24;">✅ Test Completado</h2>
+            <p>Si todas las imágenes se muestran correctamente, tu sitio está listo.</p>
+            <p>Si alguna imagen muestra "❌ Error", verifica que el archivo exista en la carpeta images/</p>
+            <a href="index.html" style="display: inline-block; margin-top: 20px; padding: 15px 30px; background: #fbbf24; color: #0d7377; text-decoration: none; border-radius: 25px; font-weight: bold;">
+                Ver Sitio Completo →
+            </a>
+        </div>
+    </div>
+</body>
+</html>

@@ -7,8 +7,11 @@
     <meta name="description" content="Descubre la mejor selección de licores premium en Licores Elite. Whiskies, vodkas, rones, ginebras, vinos y tequilas de colección con ofertas exclusivas.">
     <meta name="keywords" content="licores, whisky, vodka, ron, gin, vino, tequila, ofertas, premium">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts - Tipografías modernas y elegantes -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="styles.css">
     <script>
         tailwind.config = {
             theme: {
@@ -20,6 +23,12 @@
                         'menta': '#14b8a6',
                         'deep-menta': '#0d7377',
                         'fresh-menta': '#1a9b8e'
+                    },
+                    fontFamily: {
+                        'playfair': ['Playfair Display', 'serif'],
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                        'dancing': ['Dancing Script', 'cursive']
                     }
                 }
             }
@@ -27,7 +36,25 @@
     </script>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-deep-menta text-white font-sans">
+<body class="bg-deep-menta text-white font-inter">
+    <!-- Preloader Premium -->
+    <div id="preloader" class="fixed inset-0 bg-deep-menta bg-opacity-95 flex items-center justify-center z-[9999]">
+        <div class="text-center">
+            <div class="preloader-container mb-8">
+                <div class="wine-bottle">
+                    <i class="fas fa-wine-bottle text-gold text-6xl animate-bounce"></i>
+                </div>
+            </div>
+            <h1 class="text-4xl font-playfair text-gold mb-4">Adictiva</h1>
+            <p class="text-xl font-poppins text-menta mb-8">Cargando experiencia premium...</p>
+            <div class="loader">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Audio de Fondo -->
     <audio id="bgAudio" loop muted>
         <source src="./audio/sound 1.mp3" type="audio/mpeg">
@@ -40,7 +67,7 @@
                 <!-- Logo -->
                 <div class="flex items-center space-x-2">
                     <i class="fas fa-wine-bottle text-gold text-2xl"></i>
-                    <h1 class="text-2xl font-bold text-gold">Adictiva</h1>
+                    <h1 class="text-2xl font-bold text-gold font-playfair tracking-wide">Adictiva</h1>
                 </div>
                 <!-- Menú -->
                 <div class="hidden md:flex space-x-8">
@@ -58,7 +85,7 @@
                     <a href="#" class="text-white hover:text-gold transition-colors"><i class="fab fa-instagram text-xl"></i></a>
                     <a href="#" class="text-white hover:text-gold transition-colors"><i class="fab fa-facebook text-xl"></i></a>
                     <a href="#" class="text-white hover:text-gold transition-colors"><i class="fab fa-tiktok text-xl"></i></a>
-                    <a href="https://wa.me/1234567890" class="text-white hover:text-gold transition-colors"><i class="fab fa-whatsapp text-xl"></i></a>
+                    <a href="https://wa.me/59176165285" class="text-white hover:text-gold transition-colors"><i class="fab fa-whatsapp text-xl"></i></a>
                     <!-- Control de Audio -->
                     <button id="audioToggle" class="text-white hover:text-gold transition-colors" onclick="toggleAudio()" title="Activar/Desactivar música">
                         <i class="fas fa-volume-mute text-xl"></i>
@@ -75,8 +102,8 @@
             <div class="slide absolute inset-0 bg-cover bg-center slide-transition opacity-100" style="background-image: url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
                 <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
                     <div class="text-center text-white">
-                        <h2 class="text-5xl md:text-7xl font-bold mb-4">Los mejores whiskies del mundo</h2>
-                        <button class="bg-gold text-deep-black px-8 py-3 rounded-full font-semibold hover:bg-opacity-80 transition-colors">Ver Ofertas</button>
+                        <h2 class="text-5xl md:text-7xl font-bold mb-4 font-playfair">Los mejores whiskies del mundo</h2>
+                        <a href="#ofertas" class="bg-gold text-deep-black px-8 py-3 rounded-full font-semibold hover:bg-opacity-80 transition-colors inline-block">Ver Ofertas</a>
                     </div>
                 </div>
             </div>
@@ -84,35 +111,35 @@
             <div class="slide absolute inset-0 bg-cover bg-center slide-transition opacity-0" style="background-image: url('https://images.unsplash.com/photo-1551538827-9c037cb4f32a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
                 <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
                     <div class="text-center text-white">
-                        <h2 class="text-5xl md:text-7xl font-bold mb-4">Ofertas imperdibles en licores premium</h2>
-                        <button class="bg-gold text-deep-black px-8 py-3 rounded-full font-semibold hover:bg-opacity-80 transition-colors">Ver Ofertas</button>
+                        <h2 class="text-5xl md:text-7xl font-bold mb-4 font-playfair">Ofertas imperdibles en licores premium</h2>
+                        <a href="#ofertas" class="bg-gold text-deep-black px-8 py-3 rounded-full font-semibold hover:bg-opacity-80 transition-colors inline-block">Ver Ofertas</a>
                     </div>
                 </div>
             </div>
             <!-- Slide 3 -->
-            <div class="slide absolute inset-0 bg-cover bg-center slide-transition opacity-0" style="background-image: url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
+            <div class="slide absolute inset-0 bg-cover bg-center slide-transition opacity-0" style="background-image: url('https://www.nestleprofessional.com.mx/sites/default/files/styles/np_article_small/public/2025-01/mixologo-prepara-tendencias-bebidas.jpg?itok=k8BIFoEs');">
                 <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
                     <div class="text-center text-white">
-                        <h2 class="text-5xl md:text-7xl font-bold mb-4">Ron y ginebras de colección</h2>
-                        <button class="bg-gold text-deep-black px-8 py-3 rounded-full font-semibold hover:bg-opacity-80 transition-colors">Ver Ofertas</button>
+                        <h2 class="text-5xl md:text-7xl font-bold mb-4 font-playfair">Ron y ginebras de colección</h2>
+                        <a href="#ofertas" class="bg-gold text-deep-black px-8 py-3 rounded-full font-semibold hover:bg-opacity-80 transition-colors inline-block">Ver Ofertas</a>
                     </div>
                 </div>
             </div>
             <!-- Slide 4 -->
-            <div class="slide absolute inset-0 bg-cover bg-center slide-transition opacity-0" style="background-image: url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
+            <div class="slide absolute inset-0 bg-cover bg-center slide-transition opacity-0" style="background-image: url('https://www.supercash.es/wp-content/uploads/2022/02/bebidas-refrescantes.jpg');">
                 <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
                     <div class="text-center text-white">
-                        <h2 class="text-5xl md:text-7xl font-bold mb-4">Vinos y espumantes exclusivos</h2>
-                        <button class="bg-gold text-deep-black px-8 py-3 rounded-full font-semibold hover:bg-opacity-80 transition-colors">Ver Ofertas</button>
+                        <h2 class="text-5xl md:text-7xl font-bold mb-4 font-playfair">Vinos y espumantes exclusivos</h2>
+                        <a href="#ofertas" class="bg-gold text-deep-black px-8 py-3 rounded-full font-semibold hover:bg-opacity-80 transition-colors inline-block">Ver Ofertas</a>
                     </div>
                 </div>
             </div>
             <!-- Slide 5 -->
-            <div class="slide absolute inset-0 bg-cover bg-center slide-transition opacity-0" style="background-image: url('https://images.unsplash.com/photo-1551538827-9c037cb4f32a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
+            <div class="slide absolute inset-0 bg-cover bg-center slide-transition opacity-0" style="background-image: url('https://images.unsplash.com/photo-1569529465841-dfecdab7503b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
                 <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
                     <div class="text-center text-white">
-                        <h2 class="text-5xl md:text-7xl font-bold mb-4">Disfruta con estilo</h2>
-                        <button class="bg-gold text-deep-black px-8 py-3 rounded-full font-semibold hover:bg-opacity-80 transition-colors">Ver Ofertas</button>
+                        <h2 class="text-5xl md:text-7xl font-bold mb-4 font-playfair">Disfruta con estilo</h2>
+                        <a href="#ofertas" class="bg-gold text-deep-black px-8 py-3 rounded-full font-semibold hover:bg-opacity-80 transition-colors inline-block">Ver Ofertas</a>
                     </div>
                 </div>
             </div>
@@ -137,43 +164,79 @@
     <!-- Sección Categorías -->
     <section id="categorias" class="py-20 bg-deep-menta">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl md:text-5xl font-bold text-center text-gold mb-12 fade-in">Explora por Categorías</h2>
+            <h2 class="text-5xl md:text-7xl font-bold text-center text-gold mb-12 fade-in font-dancing" style="font-size: 4.5rem; font-weight: 700;">Explora por Categorías</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Whisky -->
                 <div class="bg-menta p-6 rounded-lg hover-scale cursor-pointer text-center">
-                    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Whisky" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <div class="w-full h-48 bg-gradient-to-br from-amber-900 to-amber-700 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                        <img src="./images/whisky.jpg" alt="Whisky" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="hidden w-full h-full items-center justify-center flex-col">
+                            <i class="fas fa-wine-glass-alt text-gold text-6xl mb-2"></i>
+                            <span class="text-gold text-2xl font-bold">🥃</span>
+                        </div>
+                    </div>
                     <i class="fas fa-wine-glass-alt text-gold text-4xl mb-4"></i>
-                    <h3 class="text-2xl font-semibold text-gold">Whisky</h3>
+                    <h3 class="text-4xl font-semibold text-gold font-dancing">Whisky</h3>
                 </div>
                 <!-- Vodka -->
                 <div class="bg-menta p-6 rounded-lg hover-scale cursor-pointer text-center">
-                    <img src="https://images.unsplash.com/photo-1551538827-9c037cb4f32a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Vodka" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <div class="w-full h-48 bg-gradient-to-br from-blue-900 to-blue-700 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                        <img src="./images/bodca.jpg" alt="Vodka" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="hidden w-full h-full items-center justify-center flex-col">
+                            <i class="fas fa-glass-martini-alt text-gold text-6xl mb-2"></i>
+                            <span class="text-gold text-2xl font-bold">🍸</span>
+                        </div>
+                    </div>
                     <i class="fas fa-glass-martini-alt text-gold text-4xl mb-4"></i>
-                    <h3 class="text-2xl font-semibold text-gold">Vodka</h3>
+                    <h3 class="text-4xl font-semibold text-gold font-dancing">Vodka</h3>
                 </div>
                 <!-- Ron -->
                 <div class="bg-menta p-6 rounded-lg hover-scale cursor-pointer text-center">
-                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Ron" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <div class="w-full h-48 bg-gradient-to-br from-orange-900 to-orange-700 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                        <img src="./images/Ron.webp" alt="Ron" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="hidden w-full h-full items-center justify-center flex-col">
+                            <i class="fas fa-cocktail text-gold text-6xl mb-2"></i>
+                            <span class="text-gold text-2xl font-bold">🍹</span>
+                        </div>
+                    </div>
                     <i class="fas fa-cocktail text-gold text-4xl mb-4"></i>
-                    <h3 class="text-2xl font-semibold text-gold">Ron</h3>
+                    <h3 class="text-4xl font-semibold text-gold font-dancing">Ron</h3>
                 </div>
                 <!-- Gin -->
                 <div class="bg-menta p-6 rounded-lg hover-scale cursor-pointer text-center">
-                    <img src="https://images.unsplash.com/photo-1551538827-9c037cb4f32a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Gin" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <div class="w-full h-48 bg-gradient-to-br from-green-900 to-green-700 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                        <img src="./images/gin (1).jpg" alt="Gin" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="hidden w-full h-full items-center justify-center flex-col">
+                            <i class="fas fa-glass-whiskey text-gold text-6xl mb-2"></i>
+                            <span class="text-gold text-2xl font-bold">🍸</span>
+                        </div>
+                    </div>
                     <i class="fas fa-glass-whiskey text-gold text-4xl mb-4"></i>
-                    <h3 class="text-2xl font-semibold text-gold">Gin</h3>
+                    <h3 class="text-4xl font-semibold text-gold font-dancing">Gin</h3>
                 </div>
                 <!-- Vino -->
                 <div class="bg-menta p-6 rounded-lg hover-scale cursor-pointer text-center">
-                    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Vino" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <div class="w-full h-48 bg-gradient-to-br from-red-900 to-red-700 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                        <img src="./images/vino.jpg" alt="Vino" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="hidden w-full h-full items-center justify-center flex-col">
+                            <i class="fas fa-wine-bottle text-gold text-6xl mb-2"></i>
+                            <span class="text-gold text-2xl font-bold">🍷</span>
+                        </div>
+                    </div>
                     <i class="fas fa-wine-bottle text-gold text-4xl mb-4"></i>
-                    <h3 class="text-2xl font-semibold text-gold">Vino</h3>
+                    <h3 class="text-4xl font-semibold text-gold font-dancing">Vino</h3>
                 </div>
                 <!-- Tequila -->
                 <div class="bg-menta p-6 rounded-lg hover-scale cursor-pointer text-center">
-                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Tequila" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <div class="w-full h-48 bg-gradient-to-br from-yellow-900 to-yellow-700 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                        <img src="./images/tequila.webp" alt="Tequila" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="hidden w-full h-full items-center justify-center flex-col">
+                            <i class="fas fa-beer text-gold text-6xl mb-2"></i>
+                            <span class="text-gold text-2xl font-bold">🥃</span>
+                        </div>
+                    </div>
                     <i class="fas fa-beer text-gold text-4xl mb-4"></i>
-                    <h3 class="text-2xl font-semibold text-gold">Tequila</h3>
+                    <h3 class="text-4xl font-semibold text-gold font-dancing">Tequila</h3>
                 </div>
             </div>
         </div>
@@ -182,56 +245,81 @@
     <!-- Sección Ofertas Especiales -->
     <section id="ofertas" class="py-20 bg-menta">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl md:text-5xl font-bold text-center text-gold mb-12 fade-in">Ofertas de la Semana</h2>
+            <h2 class="text-4xl md:text-5xl font-bold text-center text-gold mb-12 fade-in font-playfair">Ofertas de la Semana</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Producto 1 -->
                 <div class="bg-deep-menta p-6 rounded-lg hover-scale text-center">
-                    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Whisky Premium" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <div class="w-full h-48 bg-gradient-to-br from-amber-900 to-amber-700 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                        <img src="./images/whisky-premium.jpg" alt="Whisky Premium" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="hidden w-full h-full items-center justify-center flex-col">
+                            <i class="fas fa-wine-glass-alt text-gold text-6xl mb-2"></i>
+                            <span class="text-gold text-4xl">🥃</span>
+                        </div>
+                    </div>
                     <span class="bg-coral text-white px-2 py-1 rounded-full text-sm font-semibold mb-2 inline-block">¡Oferta!</span>
-                    <h3 class="text-xl font-semibold text-gold mb-2">Whisky Premium 12 años</h3>
-                    <p class="text-gray-300 line-through mb-2">$120.00</p>
-                    <p class="text-gold text-2xl font-bold mb-4">$90.00</p>
+                    <h3 class="text-xl font-semibold text-gold mb-2 font-poppins">Whisky Premium 12 años</h3>
+                    <p class="text-gray-300 line-through mb-2">Bs. 62.00</p>
+                    <p class="text-gold text-2xl font-bold mb-4">Bs. 47.00</p>
                     <button class="bg-gold text-deep-menta px-6 py-2 rounded-full font-semibold hover:bg-opacity-80 transition-colors">Añadir al carrito</button>
-                    <button class="bg-coral text-white px-6 py-2 rounded-full font-semibold hover:bg-opacity-80 transition-colors mt-2" onclick="openModal('Whisky Premium 12 años', '$90.00', 'Disfruta de este whisky premium añejado 12 años. Ideal para tomar solo, en las rocas o con un splash de agua. Perfecto para ocasiones especiales y coleccionistas.')">Ver detalles</button>
+                    <button class="bg-coral text-white px-6 py-2 rounded-full font-semibold hover:bg-opacity-80 transition-colors mt-2" onclick="openModal('Whisky Premium 12 años', 'Bs. 47.00', 'Disfruta de este whisky premium añejado 12 años. Ideal para tomar solo, en las rocas o con un splash de agua. Perfecto para ocasiones especiales y coleccionistas.')">Ver detalles</button>
                 </div>
                 <!-- Producto 2 -->
                 <div class="bg-deep-menta p-6 rounded-lg hover-scale text-center">
-                    <img src="https://images.unsplash.com/photo-1551538827-9c037cb4f32a?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Vodka Premium" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <div class="w-full h-48 bg-gradient-to-br from-blue-900 to-blue-700 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                        <img src="./images/dodca premiiiium.jpg" alt="Vodka Premium" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="hidden w-full h-full items-center justify-center flex-col">
+                            <i class="fas fa-glass-martini-alt text-gold text-6xl mb-2"></i>
+                            <span class="text-gold text-4xl">🍸</span>
+                        </div>
+                    </div>
                     <span class="bg-coral text-white px-2 py-1 rounded-full text-sm font-semibold mb-2 inline-block">¡Oferta!</span>
-                    <h3 class="text-xl font-semibold text-gold mb-2">Vodka Premium</h3>
-                    <p class="text-gray-300 line-through mb-2">$80.00</p>
-                    <p class="text-gold text-2xl font-bold mb-4">$60.00</p>
+                    <h3 class="text-xl font-semibold text-gold mb-2 font-poppins">Vodka Premium</h3>
+                    <p class="text-gray-300 line-through mb-2">Bs. 42.00</p>
+                    <p class="text-gold text-2xl font-bold mb-4">Bs. 32.00</p>
                     <button class="bg-gold text-deep-menta px-6 py-2 rounded-full font-semibold hover:bg-opacity-80 transition-colors">Añadir al carrito</button>
-                    <button class="bg-coral text-white px-6 py-2 rounded-full font-semibold hover:bg-opacity-80 transition-colors mt-2" onclick="openModal('Vodka Premium', '$60.00', 'Vodka ultra premium, suave y cristalino. Perfecto para cócteles como Martini o Cosmopolitan. Disfrútalo frío o en shots para una experiencia pura.')">Ver detalles</button>
+                    <button class="bg-coral text-white px-6 py-2 rounded-full font-semibold hover:bg-opacity-80 transition-colors mt-2" onclick="openModal('Vodka Premium', 'Bs. 32.00', 'Vodka ultra premium, suave y cristalino. Perfecto para cócteles como Martini o Cosmopolitan. Disfrútalo frío o en shots para una experiencia pura.')">Ver detalles</button>
                 </div>
                 <!-- Producto 3 -->
                 <div class="bg-deep-menta p-6 rounded-lg hover-scale text-center">
-                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Ron Añejo" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <div class="w-full h-48 bg-gradient-to-br from-orange-900 to-orange-700 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                        <img src="./images/ron 10 aaa.jpg" alt="Ron Añejo" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="hidden w-full h-full items-center justify-center flex-col">
+                            <i class="fas fa-cocktail text-gold text-6xl mb-2"></i>
+                            <span class="text-gold text-4xl">🍹</span>
+                        </div>
+                    </div>
                     <span class="bg-coral text-white px-2 py-1 rounded-full text-sm font-semibold mb-2 inline-block">¡Oferta!</span>
-                    <h3 class="text-xl font-semibold text-gold mb-2">Ron Añejo 10 años</h3>
-                    <p class="text-gray-300 line-through mb-2">$100.00</p>
-                    <p class="text-gold text-2xl font-bold mb-4">$75.00</p>
+                    <h3 class="text-xl font-semibold text-gold mb-2 font-poppins">Ron Añejo 10 años</h3>
+                    <p class="text-gray-300 line-through mb-2">Bs. 52.00</p>
+                    <p class="text-gold text-2xl font-bold mb-4">Bs. 39.50</p>
                     <button class="bg-gold text-deep-menta px-6 py-2 rounded-full font-semibold hover:bg-opacity-80 transition-colors">Añadir al carrito</button>
-                    <button class="bg-coral text-white px-6 py-2 rounded-full font-semibold hover:bg-opacity-80 transition-colors mt-2" onclick="openModal('Ron Añejo 10 años', '$75.00', 'Ron añejo de 10 años con notas de vainilla y caramelo. Ideal para Daiquiri, Mojito o simplemente en las rocas. Una joya para los amantes del ron.')">Ver detalles</button>
+                    <button class="bg-coral text-white px-6 py-2 rounded-full font-semibold hover:bg-opacity-80 transition-colors mt-2" onclick="openModal('Ron Añejo 10 años', 'Bs. 39.50', 'Ron añejo de 10 años con notas de vainilla y caramelo. Ideal para Daiquiri, Mojito o simplemente en las rocas. Una joya para los amantes del ron.')">Ver detalles</button>
                 </div>
                 <!-- Producto 4 -->
                 <div class="bg-deep-menta p-6 rounded-lg hover-scale text-center">
-                    <img src="https://images.unsplash.com/photo-1551538827-9c037cb4f32a?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Gin Premium" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <div class="w-full h-48 bg-gradient-to-br from-green-900 to-green-700 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                        <img src="./images/gimmm premium.jpg" alt="Gin Premium" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="hidden w-full h-full items-center justify-center flex-col">
+                            <i class="fas fa-glass-whiskey text-gold text-6xl mb-2"></i>
+                            <span class="text-gold text-4xl">🍸</span>
+                        </div>
+                    </div>
                     <span class="bg-coral text-white px-2 py-1 rounded-full text-sm font-semibold mb-2 inline-block">¡Oferta!</span>
-                    <h3 class="text-xl font-semibold text-gold mb-2">Gin Premium</h3>
-                    <p class="text-gray-300 line-through mb-2">$70.00</p>
-                    <p class="text-gold text-2xl font-bold mb-4">$50.00</p>
+                    <h3 class="text-xl font-semibold text-gold mb-2 font-poppins">Gin Premium</h3>
+                    <p class="text-gray-300 line-through mb-2">Bs. 37.00</p>
+                    <p class="text-gold text-2xl font-bold mb-4">Bs. 27.00</p>
                     <button class="bg-gold text-deep-menta px-6 py-2 rounded-full font-semibold hover:bg-opacity-80 transition-colors">Añadir al carrito</button>
-                    <button class="bg-coral text-white px-6 py-2 rounded-full font-semibold hover:bg-opacity-80 transition-colors mt-2" onclick="openModal('Gin Premium', '$50.00', 'Gin premium con botánicos seleccionados, perfecto para Gin & Tonic o Negroni. Fresco y aromático, ideal para cócteles sofisticados.')">Ver detalles</button>
+                    <button class="bg-coral text-white px-6 py-2 rounded-full font-semibold hover:bg-opacity-80 transition-colors mt-2" onclick="openModal('Gin Premium', 'Bs. 27.00', 'Gin premium con botánicos seleccionados, perfecto para Gin & Tonic o Negroni. Fresco y aromático, ideal para cócteles sofisticados.')">Ver detalles</button>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Sección de Contacto -->
-    <section id="contacto" class="py-20 bg-deep-black">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl md:text-5xl font-bold text-center text-gold mb-12 fade-in">Contáctanos</h2>
+    <section id="contacto" class="py-20 bg-deep-black contact-section">
+        <div class="contact-overlay"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold text-center text-gold mb-12 fade-in font-playfair">Contáctanos</h2>
             <form id="contactForm" class="bg-dark-burgundy p-8 rounded-lg">
                 <div class="grid grid-cols-1 md:grid-cols-1 gap-6 mb-6">
                     <input type="text" id="name" placeholder="Nombre" class="w-full p-3 bg-deep-black text-white rounded-lg border border-gold focus:outline-none focus:ring-2 focus:ring-gold" required>
@@ -242,9 +330,9 @@
             </form>
             <div class="mt-12 text-center">
                 <p class="text-gray-400 mb-4">O contáctanos directamente:</p>
-                <p class="text-gold"><i class="fas fa-envelope mr-2"></i>info@licoresselite.com</p>
-                <p class="text-gold"><i class="fas fa-phone mr-2"></i>+1 (555) 123-4567</p>
-                <p class="text-gold"><i class="fas fa-map-marker-alt mr-2"></i>Calle Ficticia 123, Ciudad Elegante</p>
+                <p class="text-gold"><i class="fas fa-envelope mr-2"></i>info@licoadictiva.com</p>
+                <p class="text-gold"><i class="fas fa-phone mr-2"></i>+591 76165285</p>
+                <p class="text-gold"><i class="fas fa-map-marker-alt mr-2"></i>Calle América 123, Potosí Bolivia</p>
             </div>
         </div>
     </section>
@@ -252,30 +340,48 @@
     <!-- Sección Carta de Preparaciones -->
     <section id="preparaciones" class="py-20 bg-deep-black">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl md:text-5xl font-bold text-center text-gold mb-12 fade-in">Carta de Preparaciones</h2>
+            <h2 class="text-4xl md:text-5xl font-bold text-center text-gold mb-12 fade-in font-playfair">Carta de Preparaciones</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Preparación 1: Mojito -->
                 <div class="bg-dark-burgundy p-6 rounded-lg hover-scale text-center">
-                    <img src="https://images.unsplash.com/photo-1551538827-9c037cb4f32a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Mojito" class="w-full h-48 object-cover rounded-lg mb-4">
-                    <h3 class="text-2xl font-semibold text-gold mb-2">Mojito Clásico</h3>
+                    <div class="w-full h-48 bg-gradient-to-br from-green-600 to-green-800 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                        <img src="./images/mojito clasico.png" alt="Mojito" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="hidden w-full h-full items-center justify-center flex-col">
+                            <i class="fas fa-cocktail text-gold text-6xl mb-2"></i>
+                            <span class="text-gold text-4xl">🍹</span>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gold mb-2 font-poppins">Mojito Clásico</h3>
                     <p class="text-white mb-4">Refrescante cóctel con ron, menta, lima y soda.</p>
-                    <p class="text-gold text-xl font-bold mb-4">$15.00</p>
+                    <p class="text-gold text-xl font-bold mb-4">Bs. 9.50</p>
                     <button class="bg-gold text-deep-black px-6 py-2 rounded-full font-semibold hover:bg-opacity-80 transition-colors" onclick="openOrderModal('Mojito Clásico')">Pedir Preparación</button>
                 </div>
                 <!-- Preparación 2: Martini -->
                 <div class="bg-dark-burgundy p-6 rounded-lg hover-scale text-center">
-                    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Martini" class="w-full h-48 object-cover rounded-lg mb-4">
-                    <h3 class="text-2xl font-semibold text-gold mb-2">Martini Dry</h3>
+                    <div class="w-full h-48 bg-gradient-to-br from-gray-600 to-gray-800 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                        <img src="./images/martini dry.jpg" alt="Martini" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="hidden w-full h-full items-center justify-center flex-col">
+                            <i class="fas fa-glass-martini-alt text-gold text-6xl mb-2"></i>
+                            <span class="text-gold text-4xl">🍸</span>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gold mb-2 font-poppins">Martini Dry</h3>
                     <p class="text-white mb-4">Elegante cóctel con gin y vermut seco.</p>
-                    <p class="text-gold text-xl font-bold mb-4">$18.00</p>
+                    <p class="text-gold text-xl font-bold mb-4">Bs. 11.00</p>
                     <button class="bg-gold text-deep-black px-6 py-2 rounded-full font-semibold hover:bg-opacity-80 transition-colors" onclick="openOrderModal('Martini Dry')">Pedir Preparación</button>
                 </div>
                 <!-- Preparación 3: Margarita -->
                 <div class="bg-dark-burgundy p-6 rounded-lg hover-scale text-center">
-                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Margarita" class="w-full h-48 object-cover rounded-lg mb-4">
-                    <h3 class="text-2xl font-semibold text-gold mb-2">Margarita</h3>
+                    <div class="w-full h-48 bg-gradient-to-br from-yellow-600 to-yellow-800 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                        <img src="./images/margarita.avif" alt="Margarita" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="hidden w-full h-full items-center justify-center flex-col">
+                            <i class="fas fa-cocktail text-gold text-6xl mb-2"></i>
+                            <span class="text-gold text-4xl">🍹</span>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gold mb-2 font-poppins">Margarita</h3>
                     <p class="text-white mb-4">Cóctel mexicano con tequila, lima y triple sec.</p>
-                    <p class="text-gold text-xl font-bold mb-4">$16.00</p>
+                    <p class="text-gold text-xl font-bold mb-4">Bs. 10.00</p>
                     <button class="bg-gold text-deep-black px-6 py-2 rounded-full font-semibold hover:bg-opacity-80 transition-colors" onclick="openOrderModal('Margarita')">Pedir Preparación</button>
                 </div>
             </div>
@@ -285,7 +391,7 @@
     <!-- Sección Comentarios -->
     <section id="comentarios" class="py-20 bg-dark-burgundy">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl md:text-5xl font-bold text-center text-gold mb-12 fade-in">Comentarios de Clientes</h2>
+            <h2 class="text-4xl md:text-5xl font-bold text-center text-gold mb-12 fade-in font-playfair">Comentarios de Clientes</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Comentario 1 -->
                 <div class="bg-deep-black p-6 rounded-lg">
@@ -338,7 +444,7 @@
     <!-- Sección Crea tu Propio Licor -->
     <section id="crea-tu-licor" class="py-20 bg-deep-black">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-4xl md:text-5xl font-bold text-gold mb-8 fade-in">Crea tu Propio Licor</h2>
+            <h2 class="text-4xl md:text-5xl font-bold text-gold mb-8 fade-in font-playfair">Crea tu Propio Licor</h2>
             <p class="text-white mb-8">Diseña tu bebida perfecta mezclando tus ingredientes favoritos. ¡Sé creativo y crea algo único!</p>
             <button class="bg-gold text-deep-black px-8 py-3 rounded-full font-semibold hover:bg-opacity-80 transition-colors" onclick="openCreateModal()">Crear Licor Personalizado</button>
         </div>
@@ -347,7 +453,7 @@
     <!-- Sección Canjear Código de Promoción -->
     <section id="canjear-codigo" class="py-20 bg-deep-black">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-5xl md:text-6xl font-bold text-center text-gold mb-4 fade-in">🎁 Canjea tu Código</h2>
+            <h2 class="text-5xl md:text-6xl font-bold text-center text-gold mb-4 fade-in font-playfair">🎁 Canjea tu Código</h2>
             <p class="text-center text-white mb-16 text-xl font-semibold">Ingresa tu código de descuento y descubre qué licores o tragos puedes obtener</p>
             
             <!-- Formulario Principal -->
@@ -372,7 +478,7 @@
     <!-- Modal de Productos Disponibles -->
     <div id="productsModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center hidden z-50">
         <div class="bg-deep-black p-8 rounded-xl max-w-2xl w-full mx-4 max-h-screen overflow-y-auto">
-            <h3 class="text-3xl font-bold text-gold mb-6 text-center">
+            <h3 class="text-3xl font-bold text-gold mb-6 text-center font-poppins">
                 <i class="fas fa-glass-cheers mr-3"></i>Licores y Tragos Disponibles
             </h3>
             
@@ -412,7 +518,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>
-                    <h3 class="text-gold font-semibold mb-4">Enlaces Rápidos</h3>
+                    <h3 class="text-gold font-semibold mb-4 font-poppins">Enlaces Rápidos</h3>
                     <ul class="space-y-2">
                         <li><a href="#inicio" class="text-white hover:text-gold transition-colors">Inicio</a></li>
                         <li><a href="#categorias" class="text-white hover:text-gold transition-colors">Categorías</a></li>
@@ -425,7 +531,7 @@
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-gold font-semibold mb-4">Síguenos</h3>
+                    <h3 class="text-gold font-semibold mb-4 font-poppins">Síguenos</h3>
                     <div class="flex space-x-4">
                         <a href="#" class="text-white hover:text-gold transition-colors"><i class="fab fa-instagram text-2xl"></i></a>
                         <a href="#" class="text-white hover:text-gold transition-colors"><i class="fab fa-facebook text-2xl"></i></a>
@@ -434,7 +540,7 @@
                     </div>
                 </div>
                 <div>
-                    <h3 class="text-gold font-semibold mb-4">Licores Elite</h3>
+                    <h3 class="text-gold font-semibold mb-4 font-poppins">Licores Elite</h3>
                     <p class="text-gray-400">Tu destino para licores premium y experiencias inolvidables.</p>
                 </div>
             </div>
@@ -457,15 +563,17 @@
     <!-- Modal de Pedido -->
     <div id="orderModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center hidden z-50">
         <div class="bg-deep-black p-8 rounded-lg max-w-lg w-full mx-4">
-            <h3 class="text-2xl font-bold text-gold mb-6">Pedir Preparación</h3>
+            <h3 class="text-2xl font-bold text-gold mb-6 font-poppins">Pedir Preparación</h3>
             <form id="orderForm">
                 <div class="mb-4">
                     <label class="block text-white mb-2">Preparación Seleccionada:</label>
                     <input type="text" id="selectedDrink" readonly class="w-full p-3 bg-dark-burgundy text-white rounded-lg border border-gold">
                 </div>
-                <div class="mb-4">
-                    <label class="block text-white mb-2">Cantidad (ml):</label>
-                    <input type="number" id="quantity" placeholder="Ej: 150" min="50" max="500" class="w-full p-3 bg-dark-burgundy text-white rounded-lg border border-gold focus:outline-none focus:ring-2 focus:ring-gold" required>
+                <div class="mb-6">
+                    <label class="block text-gold font-bold mb-4">Selecciona tu Envase y Tamaño:</label>
+                    <div id="packagingGridOrder" class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+                        <!-- Se genera dinámicamente con JS -->
+                    </div>
                 </div>
                 <div class="mb-4">
                     <label class="block text-white mb-2">Notas Especiales:</label>
@@ -482,42 +590,34 @@
     <!-- Modal Crea tu Licor -->
     <div id="createModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center hidden z-50">
         <div class="bg-deep-black p-8 rounded-lg max-w-2xl w-full mx-4 max-h-screen overflow-y-auto">
-            <h3 class="text-2xl font-bold text-gold mb-6">Crea tu Propio Licor</h3>
+            <h3 class="text-2xl font-bold text-gold mb-6 font-poppins">Crea tu Propio Licor</h3>
             <form id="createForm">
                 <div class="mb-4">
                     <label class="block text-white mb-2">Nombre de tu Licor:</label>
                     <input type="text" id="licorName" placeholder="Ej: Mi Cóctel Especial" class="w-full p-3 bg-dark-burgundy text-white rounded-lg border border-gold focus:outline-none focus:ring-2 focus:ring-gold" required>
                 </div>
-                <div id="ingredientsContainer" class="mb-4">
-                    <label class="block text-white mb-2">Ingredientes:</label>
-                    <div class="ingredient-row flex space-x-2 mb-2">
-                        <select class="flex-1 p-3 bg-dark-burgundy text-white rounded-lg border border-gold focus:outline-none focus:ring-2 focus:ring-gold" required>
-                            <option value="">Seleccionar Ingrediente</option>
-                            <option value="Whisky">Whisky</option>
-                            <option value="Vodka">Vodka</option>
-                            <option value="Ron">Ron</option>
-                            <option value="Gin">Gin</option>
-                            <option value="Tequila">Tequila</option>
-                            <option value="Vino">Vino</option>
-                            <option value="Cerveza">Cerveza</option>
-                            <option value="Jugo de Lima">Jugo de Lima</option>
-                            <option value="Jugo de Naranja">Jugo de Naranja</option>
-                            <option value="Soda">Soda</option>
-                            <option value="Azúcar">Azúcar</option>
-                            <option value="Menta">Menta</option>
-                            <option value="Hielo">Hielo</option>
-                        </select>
-                        <input type="number" placeholder="Cantidad" min="1" class="w-24 p-3 bg-dark-burgundy text-white rounded-lg border border-gold focus:outline-none focus:ring-2 focus:ring-gold" required>
-                        <select class="w-20 p-3 bg-dark-burgundy text-white rounded-lg border border-gold focus:outline-none focus:ring-2 focus:ring-gold" required>
-                            <option value="ml">ml</option>
-                            <option value="oz">oz</option>
-                            <option value="g">g</option>
-                            <option value="unid">unid</option>
-                        </select>
-                        <button type="button" onclick="removeIngredient(this)" class="bg-burgundy text-white px-3 py-2 rounded-lg hover:bg-opacity-80"><i class="fas fa-trash"></i></button>
+                <div class="mb-6">
+                    <label class="block text-gold font-bold mb-4">Paso 1: Selecciona tus Ingredientes</label>
+                    <div id="ingredientGrid" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3 mb-6">
+                        <!-- Se genera dinámicamente con JS -->
+                    </div>
+                    
+                    <label class="block text-gold font-bold mb-4">Paso 2: Ajusta las Proporciones</label>
+                    <div id="mixContainer" class="space-y-4 mb-6 max-h-60 overflow-y-auto pr-2 custom-scrollbar">
+                        <p class="text-gray-400 italic text-sm text-center">Toca los ingredientes arriba para empezar a mezclar...</p>
+                    </div>
+                    
+                    <div class="bg-dark-burgundy p-4 rounded-lg border border-gold flex justify-between items-center mb-6">
+                        <span class="text-white font-semibold">Volumen Total Estimado:</span>
+                        <span id="totalVolume" class="text-gold text-2xl font-bold">0 ml</span>
                     </div>
                 </div>
-                <button type="button" onclick="addIngredient()" class="bg-gold text-deep-black px-4 py-2 rounded-lg font-semibold hover:bg-opacity-80 transition-colors mb-4">Añadir Ingrediente</button>
+                <div class="mb-6">
+                    <label class="block text-gold font-bold mb-4">Paso 3: Selecciona tu Envase</label>
+                    <div id="packagingGrid" class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+                        <!-- Se genera dinámicamente con JS -->
+                    </div>
+                </div>
                 <div class="mb-4">
                     <label class="block text-white mb-2">Instrucciones de Preparación:</label>
                     <textarea id="instructions" placeholder="Describe cómo preparar tu licor..." rows="4" class="w-full p-3 bg-dark-burgundy text-white rounded-lg border border-gold focus:outline-none focus:ring-2 focus:ring-gold" required></textarea>
@@ -529,6 +629,13 @@
             </form>
         </div>
     </div>
+
+    <!-- Botón Flotante de WhatsApp -->
+    <a href="https://wa.me/59176165285?text=Hola,%20requiero%20comprar%20un%20licor%20a%20pedido%20a%20mi%20domicilio" 
+       class="whatsapp-float fixed bottom-6 right-6 bg-[#25d366] text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl z-[100] hover:scale-110 transition-transform duration-300"
+       target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp text-4xl"></i>
+    </a>
 
     <script src="script.js"></script>
 </body>

@@ -1,3 +1,160 @@
+html {
+    scroll-behavior: smooth;
+}
+
+/* Preloader Premium */
+#preloader {
+    animation: fadeOutPreloader 0.5s ease-in-out 2.5s forwards;
+}
+
+@keyframes fadeOutPreloader {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.preloader-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+.wine-bottle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: swingBottle 2s ease-in-out infinite;
+}
+
+@keyframes swingBottle {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-10deg);
+    }
+    75% {
+        transform: rotate(10deg);
+    }
+}
+
+/* Loader animado */
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    height: 40px;
+}
+
+.line {
+    width: 4px;
+    height: 30px;
+    background: linear-gradient(180deg, #fbbf24 0%, #14b8a6 100%);
+    border-radius: 2px;
+    animation: lineAnimation 1.2s ease-in-out infinite;
+}
+
+.line:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.line:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.line:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes lineAnimation {
+    0%, 100% {
+        height: 30px;
+        opacity: 0.6;
+    }
+    50% {
+        height: 60px;
+        opacity: 1;
+    }
+}
+
+/* Sección de Contacto con fondo elegante */
+.contact-section {
+    position: relative;
+    overflow: hidden;
+    background-image: url('https://images.unsplash.com/photo-1569529465841-dfecdab7503b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.contact-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(13, 115, 119, 0.85);
+    z-index: 5;
+}
+
+/* Tipografía moderna y elegante */
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+/* Estilos para Playfair Display (Títulos principales) */
+.font-playfair {
+    font-family: 'Playfair Display', serif !important;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+}
+
+h1.font-playfair,
+h2.font-playfair {
+    letter-spacing: 1px;
+    font-weight: 800;
+}
+
+/* Estilos para Poppins (Subtítulos) */
+.font-poppins {
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+/* Estilos para Dancing Script (Manuscrita elegante) */
+.font-dancing {
+    font-family: 'Dancing Script', cursive !important;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Texto con contorno dorado */
+.text-stroke-gold {
+    -webkit-text-stroke: 2px #fbbf24;
+    paint-order: stroke fill;
+}
+
+/* Estilos para Inter (Body text) */
+.font-inter {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 400;
+}
+
+/* Mejoras de readability */
+p {
+    letter-spacing: 0.2px;
+}
+
+a {
+    transition: color 0.3s ease;
+}
+
 /* Animaciones personalizadas para efectos premium */
 .hover-scale {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -15,4 +172,35 @@
 }
 .slide-transition {
     transition: opacity 0.5s ease-in-out;
+}
+
+/* Efecto de pulsación para el botón de WhatsApp */
+.whatsapp-float {
+    animation: whatsapp-pulse 2s infinite;
+}
+
+@keyframes whatsapp-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* Estilos para el mezclador interactivo */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #0d7377;
+    border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #fbbf24;
+    border-radius: 10px;
+}
+
+input[type="range"] {
+    height: 6px;
+    background: #0d7377;
+    border-radius: 5px;
+    outline: none;
 }

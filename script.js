@@ -1,3 +1,13 @@
+// Preloader Premium
+window.addEventListener('load', function() {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        setTimeout(() => {
+            preloader.style.display = 'none';
+        }, 3000);
+    }
+});
+
 // Control de Audio
 let audioPlaying = false;
 
@@ -81,63 +91,91 @@ const promoCodeProducts = {
     'ADICTIVA-2024-A5F9': {
         name: 'Promoción Adictiva 2024',
         products: [
-            { name: 'Whisky Premium 12 años', image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' },
-            { name: 'Ron Añejo 10 años', image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' },
-            { name: 'Gin Premium', image: 'https://images.unsplash.com/photo-1551538827-9c037cb4f32a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' }
+            { name: 'Whisky Premium 12 años', image: './images/whisky-premium.jpg' },
+            { name: 'Ron Añejo 10 años', image: './images/ron-anejo.jpg' },
+            { name: 'Gin Premium', image: './images/gin-premium.jpg' }
         ]
     },
     'ADICTIVA-5678-K2L8': {
         name: 'Descuento 50% Tragos',
         products: [
-            { name: 'Mojito Clásico', image: 'https://images.unsplash.com/photo-1551538827-9c037cb4f32a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' },
-            { name: 'Margarita', image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' },
-            { name: 'Daiquiri Fresa', image: 'https://images.unsplash.com/photo-1551538827-9c037cb4f32a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' },
-            { name: 'Piña Colada', image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' }
+            { name: 'Mojito Clásico', image: './images/mojito.jpg' },
+            { name: 'Margarita', image: './images/margarita.jpg' },
+            { name: 'Daiquiri Fresa', image: 'https://images.unsplash.com/photo-1608270861620-7b9b51a1c4d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' },
+            { name: 'Piña Colada', image: 'https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' }
         ]
     },
     'ADICTIVA-9012-M3R6': {
         name: 'Regalo Premium Adictiva',
         products: [
-            { name: 'Vodka Premium', image: 'https://images.unsplash.com/photo-1551538827-9c037cb4f32a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' },
-            { name: 'Tequila Gold', image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' },
-            { name: 'Vino Tinto Reserva', image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' }
+            { name: 'Vodka Premium', image: './images/vodka-premium.jpg' },
+            { name: 'Tequila Gold', image: './images/tequila.jpg' },
+            { name: 'Vino Tinto Reserva', image: './images/vino.jpg' }
         ]
     },
     'ADICTIVA-3456-N7P2': {
         name: 'Oferta Especial Adictiva',
         products: [
-            { name: 'Martini Dry', image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' },
-            { name: 'Cosmopolitan', image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' },
-            { name: 'Whisky Premium 12 años', image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' }
+            { name: 'Martini Dry', image: './images/martini.jpg' },
+            { name: 'Cosmopolitan', image: 'https://images.unsplash.com/photo-1569859882213-8f1a921fc121?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' },
+            { name: 'Whisky Premium 12 años', image: './images/whisky-premium.jpg' }
         ]
     },
     'ADICTIVA-7890-Q1T5': {
         name: 'Colección Elite Adictiva',
         products: [
-            { name: 'Ron Añejo 10 años', image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' },
-            { name: 'Gin Premium', image: 'https://images.unsplash.com/photo-1551538827-9c037cb4f32a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' },
-            { name: 'Vodka Premium', image: 'https://images.unsplash.com/photo-1551538827-9c037cb4f32a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' },
-            { name: 'Mojito Clásico', image: 'https://images.unsplash.com/photo-1551538827-9c037cb4f32a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' }
+            { name: 'Ron Añejo 10 años', image: './images/ron-anejo.jpg' },
+            { name: 'Gin Premium', image: './images/gin-premium.jpg' },
+            { name: 'Vodka Premium', image: './images/vodka-premium.jpg' },
+            { name: 'Mojito Clásico', image: './images/mojito.jpg' }
         ]
     }
 };
 
-// Variables globales para el modal
-let currentPromoCode = null;
-let selectedProductGlobal = null;
+// Datos de tragos en descuento
+const discountedDrinks = [
+    {
+        name: 'Mojito Clásico',
+        originalPrice: 2jito clásico con ron blanco, menta fresca, lime y agua mineral.'
+    },
+    {
+        name: 'Margarita',
+        originalPrice: 27.00,
+        discountPrice: 19
+        e/icription: 'Margarita tradicional con tequila, triple sec y jugo de limón fresco.'
+    },
+        :ñaginalPrice: 29.50,
+        discountPrice: 21.00,
+        discount: 31,
+        image: 'https://ima
+    {
+        name: 'Daiquiri Fresa',
+        originalPrice: 26.00,
+        discountPrice: 19.0es.unsplash.com/photo-1608270861620-7b9b51a1c4d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+        description: 'Daiquiri refrescante con ron blanco, fresas frescas y limón.'
+    },
+    {8.00,
+        discountPrice: 20.50,
+        discount: 29,
+        image: 'https://images.unsplash.com/photo-1569859882213-8f1a921fc121?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+        description: 'Cosmopolitan sofisticado con vodka, cranberry y cítricos.'
+    },
+    {
+        image: './images/martini.jpg',
+        description: 'Martini clásico con gin premium y vermut seco, servido bien frío.'
+    }
+];
 
-// Manejar envío del formulario de código
-function handlePromoSubmit(event) {
-    event.preventDefault();
+// Variables globales para el modal
+let currentPromoCode = nullrio de código
+functiondomreventDefault();
     
     const promoCode = document.getElementById('promoCode').value.trim().toUpperCase();
     
     // Validar que no esté vacío
     if (!promoCode) {
         Swal.fire({
-            icon: 'warning',
-            title: '⚠️ Código vacío',
-            text: 'Por favor ingresa un código de descuento.',
+            icon: 'warning' ingresa un código de descuento.',
             background: '#0d7377',
             color: '#fbbf24',
             confirmButtonColor: '#fbbf24'
@@ -307,118 +345,345 @@ function closeModal() {
     document.getElementById('productModal').classList.add('hidden');
 }
 
+// Funciones del Modal de Ofertas
+function openOffersModal() {
+    const container = document.getElementById('offersContainer');
+    container.innerHTML = '';
+    
+    // Generar tarjetas de tragos en descuento
+    discountedDrinks.forEach(drink => {
+        const card = document.createElement('div');
+        card.className = 'bg-menta rounded-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border-2 border-gold';
+        
+        const discountPercentage = drink.discount;
+        const savings = (drink.originalPrice - drink.discountPrice).toFixed(2);
+        
+        card.innerHTML = `
+            <div class="relative">
+                <img src="${drink.image}" alt="${drink.name}" class="w-full h-40 object-cover">
+                <div class="absolute top-3 right-3 bg-coral text-white px-3 py-1 rounded-full font-bold text-sm">
+                    -${discountPercentage}%
+                </div>
+            </div>
+            <div class="p-4">
+                <h4 class="text-lg font-bold text-deep-menta mb-2 font-poppins">${drink.name}</h4>
+                <p class="text-sm text-gray-600 mb-3">${drink.description}</p>
+                
+                <div class="mb-4 space-y-1">
+                    <div class="flex items-center justify-between">
+                        <span class="text-gray-600 font-semibold">Precio Original:</span>
+                        <span class="text-gray-600 line-through">Bs. ${drink.originalPrice.toFixed(2)}</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-gold font-bold">Precio Descuento:</span>
+                        <span class="text-gold text-2xl font-bold">Bs. ${drink.discountPrice.toFixed(2)}</span>
+                    </div>
+                    <div class="flex items-center justify-between pt-2 border-t border-gold">
+                        <span class="text-coral font-semibold">Ahorras:</span>
+                        <span class="text-coral font-bold">Bs. ${savings}</span>
+                    </div>
+                </div>
+                
+                <button onclick="addToCart('${drink.name}', ${drink.discountPrice})" class="w-full bg-gold text-deep-menta py-2 rounded-lg font-semibold hover:bg-opacity-80 transition-colors">
+                    <i class="fas fa-shopping-cart mr-2"></i>Añadir al Carrito
+                </button>
+            </div>
+        `;
+        
+        container.appendChild(card);
+    });
+    
+    // Mostrar modal
+    document.getElementById('offersModal').classList.remove('hidden');
+    
+    // Scroll al modal
+    document.body.style.overflow = 'hidden';
+}
+
+function closeOffersModal() {
+    document.getElementById('offersModal').classList.add('hidden');
+    document.body.style.overflow = 'auto';
+}
+
+function addToCart(drinkName, price) {
+    Swal.fire({
+        icon: 'success',
+        title: '¡Añadido al Carrito!',
+        html: `<p style="font-size: 16px;"><strong>${drinkName}</strong></p><p style="color: #fbbf24; font-size: 18px; margin-top: 10px;">Bs. ${price.toFixed(2)}</p>`,
+        background: '#0d7377',
+        color: '#fbbf24',
+        confirmButtonColor: '#fbbf24',
+        timer: 2000,
+        showConfirmButton: false
+    });
+}
+
 // Funciones del Modal de Pedido
+const packagingOptions = [
+    { id: 'mini', name: 'Shot Bottle', size: '100ml', icon: 'fa-flask' },
+    { id: 'flask', name: 'Petaca Elite', size: '250ml', icon: 'fa-bottle-whiskey' },
+    { id: 'standard', name: 'Botella Lujo', size: '500ml', icon: 'fa-wine-bottle' },
+    { id: 'party', name: 'Party Pack', size: '1L', icon: 'fa-box' }
+];
+
+let selectedPackagingOrder = null;
+
+function renderPackagingOptionsOrder() {
+    const grid = document.getElementById('packagingGridOrder');
+    if (!grid) return;
+    grid.innerHTML = '';
+
+    packagingOptions.forEach(pack => {
+        const item = document.createElement('div');
+        item.id = `order-pack-${pack.id}`;
+        item.className = 'bg-menta p-3 rounded-xl text-center cursor-pointer hover:scale-105 transition-transform border-2 border-transparent group';
+        if (selectedPackagingOrder && selectedPackagingOrder.id === pack.id) {
+            item.classList.add('border-gold', 'bg-opacity-80');
+        }
+        
+        item.onclick = () => selectPackagingOrder(pack);
+
+        item.innerHTML = `
+            <div class="text-2xl mb-1 text-deep-black group-hover:text-white">
+                <i class="fas ${pack.icon}"></i>
+            </div>
+            <span class="text-[10px] font-bold text-deep-black uppercase block truncate group-hover:text-white">${pack.name}</span>
+            <span class="text-[9px] text-deep-menta block font-bold">${pack.size}</span>
+        `;
+        grid.appendChild(item);
+    });
+}
+
+function selectPackagingOrder(pack) {
+    selectedPackagingOrder = pack;
+    document.querySelectorAll('[id^="order-pack-"]').forEach(el => {
+        el.classList.remove('border-gold', 'bg-opacity-80');
+    });
+    const selectedEl = document.getElementById(`order-pack-${pack.id}`);
+    if (selectedEl) selectedEl.classList.add('border-gold', 'bg-opacity-80');
+}
+
 function openOrderModal(drinkName) {
     document.getElementById('selectedDrink').value = drinkName;
+    selectedPackagingOrder = null;
+    renderPackagingOptionsOrder();
     document.getElementById('orderModal').classList.remove('hidden');
 }
 
 function closeOrderModal() {
     document.getElementById('orderModal').classList.add('hidden');
     document.getElementById('orderForm').reset();
+    selectedPackagingOrder = null;
 }
 
 // Formulario de pedido
 document.getElementById('orderForm').addEventListener('submit', function(e) {
     e.preventDefault();
+    if (!selectedPackagingOrder) {
+        Swal.fire({ icon: 'warning', title: 'Falta el envase', text: 'Por favor selecciona una presentación para tu pedido.', background: '#0d7377', color: '#fbbf24' });
+        return;
+    }
+
     const drink = document.getElementById('selectedDrink').value;
-    const quantity = document.getElementById('quantity').value;
     const notes = document.getElementById('notes').value;
-    alert(`Pedido enviado: ${drink} - Cantidad: ${quantity} ml\nNotas: ${notes || 'Ninguna'}\n¡Gracias por tu pedido!`);
+    
+    Swal.fire({
+        icon: 'success',
+        title: '¡Pedido Recibido!',
+        html: `
+            <div class="text-left bg-deep-black p-4 rounded border border-gold">
+                <p class="mb-2"><strong>Preparación:</strong> <span class="text-gold">${drink}</span></p>
+                <p class="mb-2"><strong>Envase:</strong> <span class="text-gold">${selectedPackagingOrder.name} (${selectedPackagingOrder.size})</span></p>
+                <p><strong>Notas:</strong> ${notes || 'Ninguna'}</p>
+            </div>
+        `,
+        background: '#0d7377',
+        color: '#fbbf24',
+        confirmButtonColor: '#fbbf24'
+    });
     closeOrderModal();
 });
 
 // Funciones del Modal Crea tu Licor
+// MEZCLADOR INTERACTIVO DE LICORES
+const ingredientOptions = [
+    { id: 'whisky', name: 'Whisky', img: './images/whisky.jpg', unit: 'ml' },
+    { id: 'vodka', name: 'Vodka', img: './images/bodca.jpg', unit: 'ml' },
+    { id: 'ron', name: 'Ron', img: './images/ron.jpg', unit: 'ml' },
+    { id: 'gin', name: 'Gin', img: './images/gin (1).jpg', unit: 'ml' },
+    { id: 'tequila', name: 'Tequila', img: './images/tequila.webp', unit: 'ml' },
+    { id: 'vino', name: 'Vino', img: './images/vino.jpg', unit: 'ml' },
+    { id: 'lima', name: 'Lima', icon: '🍋', unit: 'oz' },
+    { id: 'soda', name: 'Soda', icon: '🫧', unit: 'ml' },
+    { id: 'menta', name: 'Menta', icon: '🌿', unit: 'hojas' },
+    { id: 'hielo', name: 'Hielo', icon: '🧊', unit: 'cubos' }
+];
+
+let currentMix = [];
+let selectedPackaging = null;
+
 function openCreateModal() {
     document.getElementById('createModal').classList.remove('hidden');
+    renderIngredientGrid();
+    renderPackagingOptions();
+    renderMix();
 }
 
 function closeCreateModal() {
     document.getElementById('createModal').classList.add('hidden');
     document.getElementById('createForm').reset();
-    // Reset ingredients to one row
-    const container = document.getElementById('ingredientsContainer');
-    const rows = container.querySelectorAll('.ingredient-row');
-    for (let i = 1; i < rows.length; i++) {
-        rows[i].remove();
+    currentMix = [];
+    selectedPackaging = null;
+}
+
+function renderIngredientGrid() {
+    const grid = document.getElementById('ingredientGrid');
+    grid.innerHTML = '';
+    
+    ingredientOptions.forEach(ing => {
+        const item = document.createElement('div');
+        item.className = 'bg-menta p-2 rounded-xl text-center cursor-pointer hover:scale-110 transition-transform border-2 border-transparent hover:border-gold group';
+        item.onclick = () => addIngredientToMix(ing);
+        
+        const visual = ing.img 
+            ? `<img src="${ing.img}" class="w-full h-12 object-cover rounded-lg mb-1 shadow-md">`
+            : `<div class="text-2xl mb-1">${ing.icon}</div>`;
+            
+        item.innerHTML = `
+            ${visual}
+            <span class="text-[9px] font-bold text-deep-black uppercase block truncate group-hover:text-white">${ing.name}</span>
+        `;
+        grid.appendChild(item);
+    });
+}
+
+function renderPackagingOptions() {
+    const grid = document.getElementById('packagingGrid');
+    grid.innerHTML = '';
+
+    packagingOptions.forEach(pack => {
+        const item = document.createElement('div');
+        item.id = `pack-${pack.id}`;
+        item.className = 'bg-menta p-3 rounded-xl text-center cursor-pointer hover:scale-105 transition-transform border-2 border-transparent group';
+        if (selectedPackaging && selectedPackaging.id === pack.id) {
+            item.classList.add('border-gold', 'bg-opacity-80');
+        }
+        
+        item.onclick = () => selectPackaging(pack);
+
+        item.innerHTML = `
+            <div class="text-2xl mb-1 text-deep-black group-hover:text-white">
+                <i class="fas ${pack.icon}"></i>
+            </div>
+            <span class="text-[10px] font-bold text-deep-black uppercase block truncate group-hover:text-white">${pack.name}</span>
+            <span class="text-[9px] text-deep-menta block font-bold">${pack.size}</span>
+        `;
+        grid.appendChild(item);
+    });
+}
+
+function selectPackaging(pack) {
+    selectedPackaging = pack;
+    document.querySelectorAll('[id^="pack-"]').forEach(el => {
+        el.classList.remove('border-gold', 'bg-opacity-80');
+    });
+    document.getElementById(`pack-${pack.id}`).classList.add('border-gold', 'bg-opacity-80');
+    renderPackagingOptions(); // Re-render para actualizar estado visual
+}
+
+function addIngredientToMix(ing) {
+    if (currentMix.find(item => item.id === ing.id)) {
+        Swal.fire({ icon: 'info', title: 'Ya está en tu mezcla', text: 'Solo ajusta la cantidad abajo.', background: '#0d7377', color: '#fbbf24', timer: 1500, showConfirmButton: false });
+        return;
     }
+    currentMix.push({ ...ing, amount: (ing.unit === 'ml' ? 50 : 1) });
+    renderMix();
 }
 
-function addIngredient() {
-    const container = document.getElementById('ingredientsContainer');
-    const newRow = document.createElement('div');
-    newRow.className = 'ingredient-row flex space-x-2 mb-2';
-    newRow.innerHTML = `
-        <select class="flex-1 p-3 bg-dark-burgundy text-white rounded-lg border border-gold focus:outline-none focus:ring-2 focus:ring-gold" required>
-            <option value="">Seleccionar Ingrediente</option>
-            <option value="Whisky">Whisky</option>
-            <option value="Vodka">Vodka</option>
-            <option value="Ron">Ron</option>
-            <option value="Gin">Gin</option>
-            <option value="Tequila">Tequila</option>
-            <option value="Vino">Vino</option>
-            <option value="Cerveza">Cerveza</option>
-            <option value="Jugo de Lima">Jugo de Lima</option>
-            <option value="Jugo de Naranja">Jugo de Naranja</option>
-            <option value="Soda">Soda</option>
-            <option value="Azúcar">Azúcar</option>
-            <option value="Menta">Menta</option>
-            <option value="Hielo">Hielo</option>
-        </select>
-        <input type="number" placeholder="Cantidad" min="1" class="w-24 p-3 bg-dark-burgundy text-white rounded-lg border border-gold focus:outline-none focus:ring-2 focus:ring-gold" required>
-        <select class="w-20 p-3 bg-dark-burgundy text-white rounded-lg border border-gold focus:outline-none focus:ring-2 focus:ring-gold" required>
-            <option value="ml">ml</option>
-            <option value="oz">oz</option>
-            <option value="g">g</option>
-            <option value="unid">unid</option>
-        </select>
-        <button type="button" onclick="removeIngredient(this)" class="bg-burgundy text-white px-3 py-2 rounded-lg hover:bg-opacity-80"><i class="fas fa-trash"></i></button>
-    `;
-    container.appendChild(newRow);
-}
-
-function removeIngredient(button) {
-    const row = button.parentElement;
-    if (document.querySelectorAll('.ingredient-row').length > 1) {
-        row.remove();
-    } else {
-        Swal.fire('Error', 'Debe haber al menos un ingrediente', 'error');
+function renderMix() {
+    const container = document.getElementById('mixContainer');
+    if (currentMix.length === 0) {
+        container.innerHTML = '<p class="text-gray-400 italic text-sm text-center">Toca los ingredientes arriba para empezar a mezclar...</p>';
+        updateTotalVolume();
+        return;
     }
+    
+    container.innerHTML = '';
+    currentMix.forEach((item, index) => {
+        const row = document.createElement('div');
+        row.className = 'bg-deep-menta bg-opacity-40 p-3 rounded-xl border border-gold border-opacity-30 fade-in';
+        
+        const maxVal = item.unit === 'ml' ? 250 : 12;
+        
+        row.innerHTML = `
+            <div class="flex justify-between items-center mb-2">
+                <span class="font-bold text-gold flex items-center">
+                    ${item.img ? `<img src="${item.img}" class="w-6 h-6 rounded-full mr-2 object-cover border border-gold">` : `<span class="mr-2">${item.icon}</span>`}
+                    ${item.name}
+                </span>
+                <button onclick="removeFromMix(${index})" class="text-coral hover:text-white transition-colors"><i class="fas fa-trash-alt"></i></button>
+            </div>
+            <div class="flex items-center space-x-4">
+                <input type="range" min="1" max="${maxVal}" value="${item.amount}" 
+                    class="flex-1 accent-gold cursor-pointer" 
+                    oninput="updateMixAmount(${index}, this.value)">
+                <span class="w-20 text-right font-mono font-bold text-white bg-deep-black px-2 py-1 rounded border border-gold border-opacity-50">
+                    ${item.amount} ${item.unit}
+                </span>
+            </div>
+        `;
+        container.appendChild(row);
+    });
+    updateTotalVolume();
 }
 
-// Formulario Crea tu Licor
+function updateMixAmount(index, val) {
+    currentMix[index].amount = parseInt(val);
+    // Actualizamos solo el texto del span correspondiente para no re-renderizar todo el DOM
+    renderMix(); 
+}
+
+function removeFromMix(index) {
+    currentMix.splice(index, 1);
+    renderMix();
+}
+
+function updateTotalVolume() {
+    const total = currentMix.filter(i => i.unit === 'ml').reduce((acc, curr) => acc + curr.amount, 0);
+    document.getElementById('totalVolume').textContent = `${total} ml`;
+}
+
 document.getElementById('createForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    const name = document.getElementById('licorName').value;
-    const instructions = document.getElementById('instructions').value;
-    const ingredients = [];
-    const rows = document.querySelectorAll('.ingredient-row');
-    rows.forEach(row => {
-        const select = row.querySelector('select');
-        const input = row.querySelector('input[type="number"]');
-        const unit = row.querySelector('select:last-of-type');
-        if (select.value && input.value) {
-            ingredients.push(`${input.value} ${unit.value} de ${select.value}`);
-        }
-    });
-
-    if (ingredients.length === 0) {
-        Swal.fire('Error', 'Debe añadir al menos un ingrediente', 'error');
+    if (currentMix.length === 0) {
+        Swal.fire({ icon: 'error', title: 'Mezcla vacía', text: 'Debes añadir al menos un ingrediente.', background: '#0d7377', color: '#fbbf24' });
         return;
     }
 
-    const ingredientList = ingredients.join(', ');
+    if (!selectedPackaging) {
+        Swal.fire({ icon: 'warning', title: 'Falta el envase', text: 'Por favor selecciona una presentación para tu licor.', background: '#0d7377', color: '#fbbf24' });
+        return;
+    }
+    
+    const name = document.getElementById('licorName').value;
+    const instructions = document.getElementById('instructions').value;
+    const ingredientList = currentMix.map(i => `${i.amount}${i.unit} de ${i.name}`).join(', ');
+
     Swal.fire({
-        title: '¡Licor Creado!',
-        html: `<strong>${name}</strong><br>Ingredientes: ${ingredientList}<br>Instrucciones: ${instructions}`,
+        title: '¡Creación Enviada!',
+        html: `
+            <div class="text-left bg-deep-black p-4 rounded border border-gold">
+                <p class="mb-2"><strong>Nombre:</strong> <span class="text-gold">${name}</span></p>
+                <p class="mb-2"><strong>Fórmula:</strong> ${ingredientList}</p>
+                <p class="mb-2"><strong>Envase:</strong> <span class="text-gold">${selectedPackaging.name} (${selectedPackaging.size})</span></p>
+                <p><strong>Nota:</strong> ${instructions}</p>
+            </div>
+        `,
         icon: 'success',
-        confirmButtonText: 'Enviar Pedido',
-        showCancelButton: true,
-        cancelButtonText: 'Cancelar'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            Swal.fire('Pedido Enviado', 'Tu licor personalizado ha sido enviado. ¡Gracias!', 'success');
-            closeCreateModal();
-        }
+        confirmButtonText: '¡Salud!',
+        background: '#0d7377',
+        color: '#fbbf24',
+        confirmButtonColor: '#fbbf24'
     });
+    closeCreateModal();
 });
