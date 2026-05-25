@@ -132,50 +132,65 @@ const promoCodeProducts = {
     }
 };
 
-// Datos de tragos en descuento
+// Datos de tragos en descuento (Corregido error de sintaxis)
 const discountedDrinks = [
     {
         name: 'Mojito Clásico',
-        originalPrice: 2jito clásico con ron blanco, menta fresca, lime y agua mineral.'
+        originalPrice: 25.00,
+        discountPrice: 18.00,
+        discount: 28,
+        image: './images/mojito.jpg',
+        description: 'Mojito clásico con ron blanco, menta fresca, lima y agua mineral.'
     },
     {
         name: 'Margarita',
         originalPrice: 27.00,
-        discountPrice: 19
-        e/icription: 'Margarita tradicional con tequila, triple sec y jugo de limón fresco.'
+        discountPrice: 19.00,
+        discount: 30,
+        image: './images/margarita.jpg',
+        description: 'Margarita tradicional con tequila, triple sec y jugo de limón fresco.'
     },
-        :ñaginalPrice: 29.50,
+    {
+        name: 'Piña Colada',
+        originalPrice: 29.50,
         discountPrice: 21.00,
         discount: 31,
-        image: 'https://ima
+        image: 'https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+        description: 'Mezcla tropical de ron, crema de coco y jugo de piña.'
+    },
     {
         name: 'Daiquiri Fresa',
         originalPrice: 26.00,
-        discountPrice: 19.0es.unsplash.com/photo-1608270861620-7b9b51a1c4d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+        discountPrice: 19.00,
+        discount: 27,
+        image: 'https://images.unsplash.com/photo-1608270861620-7b9b51a1c4d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
         description: 'Daiquiri refrescante con ron blanco, fresas frescas y limón.'
     },
-    {8.00,
+    {
+        name: 'Cosmopolitan',
+        originalPrice: 28.00,
         discountPrice: 20.50,
         discount: 29,
-        image: 'https://images.unsplash.com/photo-1569859882213-8f1a921fc121?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+        image: 'https://images.unsplash.com/photo-1569859882213-8f1a921fc121?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
         description: 'Cosmopolitan sofisticado con vodka, cranberry y cítricos.'
-    },
-    {
-        image: './images/martini.jpg',
-        description: 'Martini clásico con gin premium y vermut seco, servido bien frío.'
     }
 ];
 
 // Variables globales para el modal
-let currentPromoCode = nullrio de código
-functiondomreventDefault();
-    
+let currentPromoCode = null;
+let selectedProductGlobal = null;
+
+function handlePromoSubmit(event) {
+    event.preventDefault();
+
     const promoCode = document.getElementById('promoCode').value.trim().toUpperCase();
-    
+
     // Validar que no esté vacío
     if (!promoCode) {
         Swal.fire({
-            icon: 'warning' ingresa un código de descuento.',
+            icon: 'warning',
+            title: 'Campo vacío',
+            text: 'Por favor ingresa un código de descuento.',
             background: '#0d7377',
             color: '#fbbf24',
             confirmButtonColor: '#fbbf24'
