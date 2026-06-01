@@ -388,52 +388,85 @@
     </section>
 
     <!-- Sección Comentarios -->
-    <section id="comentarios" class="py-20 bg-dark-burgundy">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl md:text-5xl font-bold text-center text-gold mb-12 fade-in font-playfair">Comentarios de Clientes</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Comentario 1 -->
-                <div class="bg-deep-black p-6 rounded-lg">
-                    <div class="flex items-center mb-4">
-                        <div class="flex text-gold">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <p class="text-white mb-4">"Excelente selección de whiskies. El servicio es impecable y los precios son competitivos."</p>
-                    <p class="text-gold font-semibold">- Juan Pérez</p>
-                </div>
-                <!-- Comentario 2 -->
-                <div class="bg-deep-black p-6 rounded-lg">
-                    <div class="flex items-center mb-4">
-                        <div class="flex text-gold">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <p class="text-white mb-4">"Los cócteles preparados son una delicia. Recomiendo el Martini, perfecto para ocasiones especiales."</p>
-                    <p class="text-gold font-semibold">- María García</p>
-                </div>
-                <!-- Comentario 3 -->
-                <div class="bg-deep-black p-6 rounded-lg">
-                    <div class="flex items-center mb-4">
-                        <div class="flex items-center mb-4">
-                            <div class="flex text-gold">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
+    <section id="comentarios" class="py-20 bg-dark-burgundy overflow-hidden">
+        <div class="max-w-full mx-auto px-4">
+            <h2 class="text-5xl md:text-6xl font-bold text-center text-gold mb-16 fade-in font-dancing">Nuestra Comunidad Adictiva</h2>
+            
+            <div class="relative">
+                <!-- Degradados para suavizar bordes -->
+                <div class="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-dark-burgundy to-transparent z-10 pointer-events-none"></div>
+                <div class="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-dark-burgundy to-transparent z-10 pointer-events-none"></div>
+                
+                <div class="flex animate-scroll-infinite hover:pause-animation py-10">
+                    <!-- Set de Comentarios -->
+                    <div class="flex space-x-8 px-4">
+                        <!-- Comentario 1 -->
+                        <div class="w-80 md:w-96 bg-deep-black p-8 rounded-3xl border border-gold/30 shadow-2xl hover:border-gold transition-all duration-300 transform hover:-translate-y-2 flex-shrink-0">
+                            <div class="flex text-gold mb-4 text-xl">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-white text-lg italic mb-6">"¡Simplemente espectacular! El Whisky que pedí es una joya total y la atención es súper cálida. ¡Anímense a probar!"</p>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-gold rounded-full flex items-center justify-center text-deep-black font-bold text-xl mr-4 shadow-inner">JP</div>
+                                <p class="text-gold font-bold">Juan P. <span class="block text-xs text-gray-400 font-normal">Entusiasta del buen beber</span></p>
                             </div>
                         </div>
-                        <p class="text-white mb-4">"Gran variedad de licores premium. La entrega es rápida y el empaque impecable."</p>
-                        <p class="text-gold font-semibold">- Carlos López</p>
+                        <!-- Comentario 2 -->
+                        <div class="w-80 md:w-96 bg-deep-black p-8 rounded-3xl border border-gold/30 shadow-2xl hover:border-gold transition-all duration-300 transform hover:-translate-y-2 flex-shrink-0">
+                            <div class="flex text-gold mb-4 text-xl">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-white text-lg italic mb-6">"¡Me enamoré de los cócteles! El Martini es una explosión de frescura ideal. ¡Es el toque de alegría que mis reuniones necesitaban!"</p>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-gold rounded-full flex items-center justify-center text-deep-black font-bold text-xl mr-4 shadow-inner">MG</div>
+                                <p class="text-gold font-bold">María G. <span class="block text-xs text-gray-400 font-normal">Amante de momentos especiales</span></p>
+                            </div>
+                        </div>
+                        <!-- Comentario 3 -->
+                        <div class="w-80 md:w-96 bg-deep-black p-8 rounded-3xl border border-gold/30 shadow-2xl hover:border-gold transition-all duration-300 transform hover:-translate-y-2 flex-shrink-0">
+                            <div class="flex text-gold mb-4 text-xl">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <p class="text-white text-lg italic mb-6">"¡La mejor elección que he hecho! Los licores son de otro nivel y todo llega impecable. ¡Mi lugar favorito para celebrar!"</p>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-gold rounded-full flex items-center justify-center text-deep-black font-bold text-xl mr-4 shadow-inner">CL</div>
+                                <p class="text-gold font-bold">Carlos L. <span class="block text-xs text-gray-400 font-normal">Fan de las celebraciones</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Duplicado idéntico para el loop -->
+                    <div class="flex space-x-8 px-4">
+                        <div class="w-80 md:w-96 bg-deep-black p-8 rounded-3xl border border-gold/30 shadow-2xl hover:border-gold transition-all duration-300 transform hover:-translate-y-2 flex-shrink-0">
+                            <div class="flex text-gold mb-4 text-xl">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-white text-lg italic mb-6">"¡Simplemente espectacular! El Whisky que pedí es una joya total y la atención es súper cálida. ¡Anímense a probar!"</p>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-gold rounded-full flex items-center justify-center text-deep-black font-bold text-xl mr-4 shadow-inner">JP</div>
+                                <p class="text-gold font-bold">Juan P. <span class="block text-xs text-gray-400 font-normal">Entusiasta del buen beber</span></p>
+                            </div>
+                        </div>
+                        <div class="w-80 md:w-96 bg-deep-black p-8 rounded-3xl border border-gold/30 shadow-2xl hover:border-gold transition-all duration-300 transform hover:-translate-y-2 flex-shrink-0">
+                            <div class="flex text-gold mb-4 text-xl">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-white text-lg italic mb-6">"¡Me enamoré de los cócteles! El Martini es una explosión de frescura ideal. ¡Es el toque de alegría que mis reuniones necesitaban!"</p>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-gold rounded-full flex items-center justify-center text-deep-black font-bold text-xl mr-4 shadow-inner">MG</div>
+                                <p class="text-gold font-bold">María G. <span class="block text-xs text-gray-400 font-normal">Amante de momentos especiales</span></p>
+                            </div>
+                        </div>
+                        <div class="w-80 md:w-96 bg-deep-black p-8 rounded-3xl border border-gold/30 shadow-2xl hover:border-gold transition-all duration-300 transform hover:-translate-y-2 flex-shrink-0">
+                            <div class="flex text-gold mb-4 text-xl">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <p class="text-white text-lg italic mb-6">"¡La mejor elección que he hecho! Los licores son de otro nivel y todo llega impecable. ¡Mi lugar favorito para celebrar!"</p>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-gold rounded-full flex items-center justify-center text-deep-black font-bold text-xl mr-4 shadow-inner">CL</div>
+                                <p class="text-gold font-bold">Carlos L. <span class="block text-xs text-gray-400 font-normal">Fan de las celebraciones</span></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -462,8 +495,8 @@
                         <label class="block text-deep-black font-bold text-2xl mb-4 text-center">
                             <i class="fas fa-key text-gold mr-3"></i>Ingresa tu Código de Descuento
                         </label>
-                        <input type="text" id="promoCode" placeholder="PROMO2024" class="w-full p-5 bg-white text-gold rounded-xl border-2 border-gold focus:outline-none focus:ring-2 focus:ring-deep-black font-bold text-center text-2xl uppercase placeholder-gold" required maxlength="20">
-                        <p class="text-center text-deep-black mt-4 text-sm font-semibold">Ejemplo: ADICTIVA-2024-A5F9, ADICTIVA-5678-K2L8</p>
+                        <input type="text" id="promoCode" placeholder="ADICTIVA-123" class="w-full p-5 bg-white text-gold rounded-xl border-2 border-gold focus:outline-none focus:ring-2 focus:ring-deep-black font-bold text-center text-2xl uppercase placeholder-gold" required maxlength="20">
+                        <p class="text-center text-deep-black mt-4 text-sm font-semibold">Ejemplo: ADICTIVA-123, ADICTIVA-456, ADICTIVA-789</p>
                     </div>
                     
                     <button type="submit" class="w-full bg-gold text-deep-black px-12 py-4 rounded-full font-bold text-xl hover:bg-opacity-80 transition-colors hover:scale-105 transform duration-300 shadow-lg">

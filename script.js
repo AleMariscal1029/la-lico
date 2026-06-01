@@ -88,15 +88,15 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
 
 // Mapeo de códigos de promoción a productos disponibles
 const promoCodeProducts = {
-    'ADICTIVA-2024-A5F9': {
+    'ADICTIVA-123': {
         name: 'Promoción Adictiva 2024',
         products: [
             { name: 'Whisky Premium 12 años', image: './images/whisky-premium.jpg' },
-            { name: 'Ron Añejo 10 años', image: './images/ron-anejo.jpg' },
-            { name: 'Gin Premium', image: './images/gin-premium.jpg' }
+            { name: 'Ron Añejo 10 años', image: './images/ronito 11.jpg' },
+            { name: 'Gin Premium', image: './images/ginito 11.jpg' }
         ]
     },
-    'ADICTIVA-5678-K2L8': {
+    'ADICTIVA-456': {
         name: 'Descuento 50% Tragos',
         products: [
             { name: 'Mojito Clásico', image: './images/mojito.jpg' },
@@ -105,7 +105,7 @@ const promoCodeProducts = {
             { name: 'Piña Colada', image: 'https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80' }
         ]
     },
-    'ADICTIVA-9012-M3R6': {
+    'ADICTIVA-789': {
         name: 'Regalo Premium Adictiva',
         products: [
             { name: 'Vodka Premium', image: './images/vodka-premium.jpg' },
@@ -113,7 +113,7 @@ const promoCodeProducts = {
             { name: 'Vino Tinto Reserva', image: './images/vino.jpg' }
         ]
     },
-    'ADICTIVA-3456-N7P2': {
+    'ADICTIVA-101': {
         name: 'Oferta Especial Adictiva',
         products: [
             { name: 'Martini Dry', image: './images/martini.jpg' },
@@ -121,11 +121,11 @@ const promoCodeProducts = {
             { name: 'Whisky Premium 12 años', image: './images/whisky-premium.jpg' }
         ]
     },
-    'ADICTIVA-7890-Q1T5': {
+    'ADICTIVA-202': {
         name: 'Colección Elite Adictiva',
         products: [
-            { name: 'Ron Añejo 10 años', image: './images/ron-anejo.jpg' },
-            { name: 'Gin Premium', image: './images/gin-premium.jpg' },
+            { name: 'Ron Añejo 10 años', image: './imagen/' },
+            { name: 'Gin Premium', image: './images/ginito 11.jpg' },
             { name: 'Vodka Premium', image: './images/vodka-premium.jpg' },
             { name: 'Mojito Clásico', image: './images/mojito.jpg' }
         ]
@@ -203,7 +203,7 @@ function handlePromoSubmit(event) {
         Swal.fire({
             icon: 'error',
             title: '❌ Código inválido',
-            text: 'El código ingresado no existe o ha expirado.\n\nCódigos válidos: ADICTIVA-2024-A5F9, ADICTIVA-5678-K2L8, ADICTIVA-9012-M3R6',
+            text: 'El código ingresado no existe o ha expirado.\n\nCódigos válidos: ADICTIVA-123, ADICTIVA-456, ADICTIVA-789',
             background: '#0d7377',
             color: '#fbbf24',
             confirmButtonColor: '#fbbf24'
@@ -435,10 +435,10 @@ function addToCart(drinkName, price) {
 
 // Funciones del Modal de Pedido
 const packagingOptions = [
-    { id: 'mini', name: 'Shot Bottle', size: '100ml', icon: 'fa-flask' },
-    { id: 'flask', name: 'Petaca Elite', size: '250ml', icon: 'fa-bottle-whiskey' },
-    { id: 'standard', name: 'Botella Lujo', size: '500ml', icon: 'fa-wine-bottle' },
-    { id: 'party', name: 'Party Pack', size: '1L', icon: 'fa-box' }
+    { id: 'mini', name: 'Esencia Diamante', size: '100ml', icon: 'fa-gem' },
+    { id: 'flask', name: 'Frasco Alquimista', size: '250ml', icon: 'fa-vial' },
+    { id: 'standard', name: 'Cristal Signature', size: '500ml', icon: 'fa-wine-bottle' },
+    { id: 'party', name: 'Edición de Gala', size: '1L', icon: 'fa-crown' }
 ];
 
 let selectedPackagingOrder = null;
@@ -451,7 +451,7 @@ function renderPackagingOptionsOrder() {
     packagingOptions.forEach(pack => {
         const item = document.createElement('div');
         item.id = `order-pack-${pack.id}`;
-        item.className = 'bg-menta p-3 rounded-xl text-center cursor-pointer hover:scale-105 transition-transform border-2 border-transparent group';
+        item.className = 'bg-menta p-4 rounded-2xl text-center cursor-pointer hover:scale-105 transition-all duration-300 border-2 border-transparent group shadow-lg hover:shadow-gold/20';
         if (selectedPackagingOrder && selectedPackagingOrder.id === pack.id) {
             item.classList.add('border-gold', 'bg-opacity-80');
         }
@@ -459,11 +459,11 @@ function renderPackagingOptionsOrder() {
         item.onclick = () => selectPackagingOrder(pack);
 
         item.innerHTML = `
-            <div class="text-2xl mb-1 text-deep-black group-hover:text-white">
+            <div class="text-3xl mb-2 text-gold group-hover:text-white transition-transform duration-300 group-hover:scale-110">
                 <i class="fas ${pack.icon}"></i>
             </div>
-            <span class="text-[10px] font-bold text-deep-black uppercase block truncate group-hover:text-white">${pack.name}</span>
-            <span class="text-[9px] text-deep-menta block font-bold">${pack.size}</span>
+            <span class="text-[11px] font-extrabold text-deep-black uppercase block truncate group-hover:text-white mb-1">${pack.name}</span>
+            <span class="text-[9px] bg-deep-black text-gold px-2 py-0.5 rounded-full inline-block font-bold">${pack.size}</span>
         `;
         grid.appendChild(item);
     });
@@ -579,7 +579,7 @@ function renderPackagingOptions() {
     packagingOptions.forEach(pack => {
         const item = document.createElement('div');
         item.id = `pack-${pack.id}`;
-        item.className = 'bg-menta p-3 rounded-xl text-center cursor-pointer hover:scale-105 transition-transform border-2 border-transparent group';
+        item.className = 'bg-menta p-4 rounded-2xl text-center cursor-pointer hover:scale-105 transition-all duration-300 border-2 border-transparent group shadow-lg hover:shadow-gold/20';
         if (selectedPackaging && selectedPackaging.id === pack.id) {
             item.classList.add('border-gold', 'bg-opacity-80');
         }
@@ -587,11 +587,11 @@ function renderPackagingOptions() {
         item.onclick = () => selectPackaging(pack);
 
         item.innerHTML = `
-            <div class="text-2xl mb-1 text-deep-black group-hover:text-white">
+            <div class="text-3xl mb-2 text-gold group-hover:text-white transition-transform duration-300 group-hover:scale-110">
                 <i class="fas ${pack.icon}"></i>
             </div>
-            <span class="text-[10px] font-bold text-deep-black uppercase block truncate group-hover:text-white">${pack.name}</span>
-            <span class="text-[9px] text-deep-menta block font-bold">${pack.size}</span>
+            <span class="text-[11px] font-extrabold text-deep-black uppercase block truncate group-hover:text-white mb-1">${pack.name}</span>
+            <span class="text-[9px] bg-deep-black text-gold px-2 py-0.5 rounded-full inline-block font-bold">${pack.size}</span>
         `;
         grid.appendChild(item);
     });
