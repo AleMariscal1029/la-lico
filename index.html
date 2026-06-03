@@ -259,7 +259,7 @@
                     <h3 class="text-xl font-semibold text-gold mb-2 font-poppins">Whisky Premium 12 años</h3>
                     <p class="text-gray-300 line-through mb-2">Bs. 62.00</p>
                     <p class="text-gold text-2xl font-bold mb-4">Bs. 47.00</p>
-                    <button class="bg-gold text-deep-menta px-6 py-2 rounded-full font-semibold hover:bg-opacity-80 transition-colors">Añadir al carrito</button>
+                    <button onclick="addToCart('Whisky Premium 12 años', 47.00)" class="bg-gold text-deep-menta px-6 py-2 rounded-full font-semibold hover:bg-opacity-80 transition-colors">Añadir al carrito</button>
                     <button class="bg-coral text-white px-6 py-2 rounded-full font-semibold hover:bg-opacity-80 transition-colors mt-2" onclick="openModal('Whisky Premium 12 años', 'Bs. 47.00', 'Disfruta de este whisky premium añejado 12 años. Ideal para tomar solo, en las rocas o con un splash de agua. Perfecto para ocasiones especiales y coleccionistas.')">Ver detalles</button>
                 </div>
                 <!-- Producto 2 -->
@@ -275,7 +275,7 @@
                     <h3 class="text-xl font-semibold text-gold mb-2 font-poppins">Vodka Premium</h3>
                     <p class="text-gray-300 line-through mb-2">Bs. 42.00</p>
                     <p class="text-gold text-2xl font-bold mb-4">Bs. 32.00</p>
-                    <button class="bg-gold text-deep-menta px-6 py-2 rounded-full font-semibold hover:bg-opacity-80 transition-colors">Añadir al carrito</button>
+                    <button onclick="addToCart('Vodka Premium', 32.00)" class="bg-gold text-deep-menta px-6 py-2 rounded-full font-semibold hover:bg-opacity-80 transition-colors">Añadir al carrito</button>
                     <button class="bg-coral text-white px-6 py-2 rounded-full font-semibold hover:bg-opacity-80 transition-colors mt-2" onclick="openModal('Vodka Premium', 'Bs. 32.00', 'Vodka ultra premium, suave y cristalino. Perfecto para cócteles como Martini o Cosmopolitan. Disfrútalo frío o en shots para una experiencia pura.')">Ver detalles</button>
                 </div>
                 <!-- Producto 3 -->
@@ -291,7 +291,7 @@
                     <h3 class="text-xl font-semibold text-gold mb-2 font-poppins">Ron Añejo 10 años</h3>
                     <p class="text-gray-300 line-through mb-2">Bs. 52.00</p>
                     <p class="text-gold text-2xl font-bold mb-4">Bs. 39.50</p>
-                    <button class="bg-gold text-deep-menta px-6 py-2 rounded-full font-semibold hover:bg-opacity-80 transition-colors">Añadir al carrito</button>
+                    <button onclick="addToCart('Ron Añejo 10 años', 39.50)" class="bg-gold text-deep-menta px-6 py-2 rounded-full font-semibold hover:bg-opacity-80 transition-colors">Añadir al carrito</button>
                     <button class="bg-coral text-white px-6 py-2 rounded-full font-semibold hover:bg-opacity-80 transition-colors mt-2" onclick="openModal('Ron Añejo 10 años', 'Bs. 39.50', 'Ron añejo de 10 años con notas de vainilla y caramelo. Ideal para Daiquiri, Mojito o simplemente en las rocas. Una joya para los amantes del ron.')">Ver detalles</button>
                 </div>
                 <!-- Producto 4 -->
@@ -307,7 +307,7 @@
                     <h3 class="text-xl font-semibold text-gold mb-2 font-poppins">Gin Premium</h3>
                     <p class="text-gray-300 line-through mb-2">Bs. 37.00</p>
                     <p class="text-gold text-2xl font-bold mb-4">Bs. 27.00</p>
-                    <button class="bg-gold text-deep-menta px-6 py-2 rounded-full font-semibold hover:bg-opacity-80 transition-colors">Añadir al carrito</button>
+                    <button onclick="addToCart('Gin Premium', 27.00)" class="bg-gold text-deep-menta px-6 py-2 rounded-full font-semibold hover:bg-opacity-80 transition-colors">Añadir al carrito</button>
                     <button class="bg-coral text-white px-6 py-2 rounded-full font-semibold hover:bg-opacity-80 transition-colors mt-2" onclick="openModal('Gin Premium', 'Bs. 27.00', 'Gin premium con botánicos seleccionados, perfecto para Gin & Tonic o Negroni. Fresco y aromático, ideal para cócteles sofisticados.')">Ver detalles</button>
                 </div>
             </div>
@@ -545,6 +545,27 @@
         </div>
     </div>
 
+    <!-- Sección Resumen de Compra Global -->
+    <section id="global-cart-summary" class="py-20 bg-deep-menta border-t-2 border-gold hidden">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-5xl font-bold text-center text-gold mb-12 font-dancing">Tu Selección Premium</h2>
+            
+            <div id="cart-list" class="space-y-4 mb-10">
+                <!-- Los productos seleccionados aparecerán aquí dinámicamente -->
+            </div>
+
+            <div class="bg-dark-burgundy p-8 rounded-3xl border-2 border-gold shadow-2xl flex flex-col md:flex-row justify-between items-center">
+                <div class="text-center md:text-left mb-4 md:mb-0">
+                    <span class="text-gray-400 uppercase tracking-widest text-sm block">Total a cancelar</span>
+                    <span id="grand-total" class="text-4xl font-bold text-gold font-mono">Bs. 0.00</span>
+                </div>
+                <button onclick="finalCheckout()" class="bg-gold text-deep-black px-12 py-4 rounded-full font-bold text-xl hover:scale-105 transition-transform shadow-lg hover:bg-opacity-90">
+                    <i class="fas fa-shopping-bag mr-2"></i>Confirmar y Pagar
+                </button>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="bg-dark-burgundy py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -609,7 +630,7 @@
                 </div>
                 <div class="mb-4">
                     <label class="block text-white mb-2">Notas Especiales:</label>
-                    <textarea id="notes" placeholder="Ej: Menos azúcar, más lima..." rows="3" class="w-full p-3 bg-dark-burgundy text-white rounded-lg border border-gold focus:outline-none focus:ring-2 focus:ring-gold"></textarea>
+                    <textarea id="notes" placeholder="Ej: Menos azúcar, más lima..." rows="3" class="w-full p-3 bg-white text-black font-bold font-inter rounded-lg border border-gold focus:outline-none focus:ring-2 focus:ring-gold"></textarea>
                 </div>
                 <div class="flex space-x-4">
                     <button type="submit" class="bg-gold text-deep-black px-6 py-2 rounded-full font-semibold hover:bg-opacity-80 transition-colors">Enviar Pedido</button>
@@ -643,6 +664,10 @@
                         <span class="text-white font-semibold">Volumen Total Estimado:</span>
                         <span id="totalVolume" class="text-gold text-2xl font-bold">0 ml</span>
                     </div>
+                    <div class="bg-dark-burgundy p-4 rounded-lg border border-gold flex justify-between items-center mb-6">
+                        <span class="text-white font-semibold">Precio Total Estimado:</span>
+                        <span id="totalPrice" class="text-gold text-2xl font-bold">Bs. 0.00</span>
+                    </div>
                 </div>
                 <div class="mb-6">
                     <label class="block text-gold font-bold mb-4">Paso 3: Selecciona tu Envase</label>
@@ -652,7 +677,7 @@
                 </div>
                 <div class="mb-4">
                     <label class="block text-white mb-2">Instrucciones de Preparación:</label>
-                    <textarea id="instructions" placeholder="Describe cómo preparar tu licor..." rows="4" class="w-full p-3 bg-dark-burgundy text-white rounded-lg border border-gold focus:outline-none focus:ring-2 focus:ring-gold" required></textarea>
+                    <textarea id="instructions" placeholder="Describe cómo preparar tu licor..." rows="4" class="w-full p-3 bg-white text-black font-bold font-inter rounded-lg border border-gold focus:outline-none focus:ring-2 focus:ring-gold" required></textarea>
                 </div>
                 <div class="flex space-x-4">
                     <button type="submit" class="bg-gold text-deep-black px-6 py-2 rounded-full font-semibold hover:bg-opacity-80 transition-colors">Crear y Enviar</button>

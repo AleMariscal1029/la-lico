@@ -420,25 +420,65 @@ function closeOffersModal() {
     document.body.style.overflow = 'auto';
 }
 
-function addToCart(drinkName, price) {
-    Swal.fire({
-        icon: 'success',
-        title: '¡Añadido al Carrito!',
-        html: `<p style="font-size: 16px;"><strong>${drinkName}</strong></p><p style="color: #fbbf24; font-size: 18px; margin-top: 10px;">Bs. ${price.toFixed(2)}</p>`,
-        background: '#0d7377',
-        color: '#fbbf24',
-        confirmButtonColor: '#fbbf24',
-        timer: 2000,
-        showConfirmButton: false
+// --- LÓGICA DEL CARRITO GLOBAL ---
+let globalCart = [];
+
+function addToGlobalCart(name, price, details) {
+    globalCart.push({ name, price, details });
+    updateGlobalCartUI();
+    
+    // Mostrar la sección si estaba oculta
+    const summarySection = document.getElementById('global-cart-summary');
+    if (summarySection) summarySection.classList.remove('hidden');
+}
+
+function updateGlobalCartUI() {
+    const list = document.getElementById('cart-list');
+    const totalSpan = document.getElementById('grand-total');
+    if (!list || !totalSpan) return;
+
+    list.innerHTML = '';
+    let total = 0;
+
+    globalCart.forEach((item, index) => {
+        total += item.price;
+        const div = document.createElement('div');
+        div.className = 'flex justify-between items-center bg-dark-burgundy p-5 rounded-2xl border border-gold/20 hover:border-gold transition-all fade-in';
+        div.innerHTML = `
+            <div>
+                <h4 class="text-gold font-bold text-lg">${item.name}</h4>
+                <p class="text-xs text-gray-400 italic">${item.details}</p>
+            </div>
+            <div class="flex items-center space-x-6">
+                <span class="text-white font-mono font-bold text-xl">Bs. ${item.price.toFixed(2)}</span>
+                <button onclick="removeFromGlobalCart(${index})" class="text-coral hover:text-white transition-colors">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
+            </div>
+        `;
+        list.appendChild(div);
     });
+
+    totalSpan.textContent = `Bs. ${total.toFixed(2)}`;
+    if (globalCart.length === 0) document.getElementById('global-cart-summary').classList.add('hidden');
+}
+
+function removeFromGlobalCart(index) {
+    globalCart.splice(index, 1);
+    updateGlobalCartUI();
+}
+
+function addToCart(drinkName, price) {
+    addToGlobalCart(drinkName, price, "Oferta Especial");
+    Swal.fire({ icon: 'success', title: '¡Añadido!', text: `${drinkName} se sumó a tu lista.`, background: '#0d7377', color: '#fbbf24', timer: 1500, showConfirmButton: false });
 }
 
 // Funciones del Modal de Pedido
 const packagingOptions = [
-    { id: 'mini', name: 'Esencia Diamante', size: '100ml', icon: 'fa-gem' },
-    { id: 'flask', name: 'Frasco Alquimista', size: '250ml', icon: 'fa-vial' },
-    { id: 'standard', name: 'Cristal Signature', size: '500ml', icon: 'fa-wine-bottle' },
-    { id: 'party', name: 'Edición de Gala', size: '1L', icon: 'fa-crown' }
+    { id: 'mini', name: 'Esencia Diamante', size: '100ml', icon: 'fa-gem', basePrice: 5.00 },
+    { id: 'flask', name: 'Frasco Alquimista', size: '250ml', icon: 'fa-vial', basePrice: 8.00 },
+    { id: 'standard', name: 'Cristal Signature', size: '500ml', icon: 'fa-wine-bottle', basePrice: 12.00 },
+    { id: 'party', name: 'Edición de Gala', size: '1L', icon: 'fa-crown', basePrice: 18.00 }
 ];
 
 let selectedPackagingOrder = null;
@@ -491,6 +531,9 @@ function closeOrderModal() {
     selectedPackagingOrder = null;
 }
 
+// Precios base de preparaciones (mapeo simple)
+const drinkPrices = { "Mojito Clásico": 9.50, "Martini Dry": 11.00, "Margarita": 10.00 };
+
 // Formulario de pedido
 document.getElementById('orderForm').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -498,6 +541,9 @@ document.getElementById('orderForm').addEventListener('submit', function(e) {
         Swal.fire({ icon: 'warning', title: 'Falta el envase', text: 'Por favor selecciona una presentación para tu pedido.', background: '#0d7377', color: '#fbbf24' });
         return;
     }
+
+    const basePrice = drinkPrices[document.getElementById('selectedDrink').value] || 10.00;
+    const finalPrice = basePrice + selectedPackagingOrder.basePrice;
 
     const drink = document.getElementById('selectedDrink').value;
     const notes = document.getElementById('notes').value;
@@ -516,28 +562,30 @@ document.getElementById('orderForm').addEventListener('submit', function(e) {
         color: '#fbbf24',
         confirmButtonColor: '#fbbf24'
     });
+    addToGlobalCart(drink, finalPrice, `Envase: ${selectedPackagingOrder.name} (${selectedPackagingOrder.size})`);
     closeOrderModal();
 });
 
 // Funciones del Modal Crea tu Licor
 // MEZCLADOR INTERACTIVO DE LICORES
 const ingredientOptions = [
-    { id: 'whisky', name: 'Whisky', img: './images/whisky.jpg', unit: 'ml' },
-    { id: 'vodka', name: 'Vodka', img: './images/bodca.jpg', unit: 'ml' },
-    { id: 'ron', name: 'Ron', img: './images/ron.jpg', unit: 'ml' },
-    { id: 'gin', name: 'Gin', img: './images/gin (1).jpg', unit: 'ml' },
-    { id: 'tequila', name: 'Tequila', img: './images/tequila.webp', unit: 'ml' },
-    { id: 'vino', name: 'Vino', img: './images/vino.jpg', unit: 'ml' },
-    { id: 'lima', name: 'Lima', icon: '🍋', unit: 'oz' },
-    { id: 'soda', name: 'Soda', icon: '🫧', unit: 'ml' },
-    { id: 'menta', name: 'Menta', icon: '🌿', unit: 'hojas' },
-    { id: 'hielo', name: 'Hielo', icon: '🧊', unit: 'cubos' }
+    { id: 'whisky', name: 'Whisky', img: './images/whisky.jpg', unit: 'ml', pricePerUnit: 0.5 },
+    { id: 'vodka', name: 'Vodka', img: './images/bodca.jpg', unit: 'ml', pricePerUnit: 0.4 },
+    { id: 'ron', name: 'Ron', img: './images/Ron.webp', unit: 'ml', pricePerUnit: 0.45 },
+    { id: 'gin', name: 'Gin', img: './images/gin (1).jpg', unit: 'ml', pricePerUnit: 0.48 },
+    { id: 'tequila', name: 'Tequila', img: './images/tequila.webp', unit: 'ml', pricePerUnit: 0.42 },
+    { id: 'vino', name: 'Vino', img: './images/vino.jpg', unit: 'ml', pricePerUnit: 0.3 },
+    { id: 'lima', name: 'Lima', icon: '🍋', unit: 'oz', pricePerUnit: 1.5 },
+    { id: 'soda', name: 'Soda', icon: '🫧', unit: 'ml', pricePerUnit: 0.1 },
+    { id: 'menta', name: 'Menta', icon: '🌿', unit: 'hojas', pricePerUnit: 0.5 },
+    { id: 'hielo', name: 'Hielo', icon: '🧊', unit: 'cubos', pricePerUnit: 0.1 }
 ];
 
 let currentMix = [];
 let selectedPackaging = null;
 
 function openCreateModal() {
+    currentMix = []; // Reset mix when opening modal
     document.getElementById('createModal').classList.remove('hidden');
     renderIngredientGrid();
     renderPackagingOptions();
@@ -602,8 +650,9 @@ function selectPackaging(pack) {
     document.querySelectorAll('[id^="pack-"]').forEach(el => {
         el.classList.remove('border-gold', 'bg-opacity-80');
     });
-    document.getElementById(`pack-${pack.id}`).classList.add('border-gold', 'bg-opacity-80');
-    renderPackagingOptions(); // Re-render para actualizar estado visual
+    const selectedEl = document.getElementById(`pack-${pack.id}`);
+    if (selectedEl) selectedEl.classList.add('border-gold', 'bg-opacity-80');
+    updateTotalPrice(); // Update price when packaging changes
 }
 
 function addIngredientToMix(ing) {
@@ -611,7 +660,8 @@ function addIngredientToMix(ing) {
         Swal.fire({ icon: 'info', title: 'Ya está en tu mezcla', text: 'Solo ajusta la cantidad abajo.', background: '#0d7377', color: '#fbbf24', timer: 1500, showConfirmButton: false });
         return;
     }
-    currentMix.push({ ...ing, amount: (ing.unit === 'ml' ? 50 : 1) });
+    // Set initial amount based on unit type
+    currentMix.push({ ...ing, amount: (ing.unit === 'ml' ? 50 : (ing.unit === 'oz' ? 1 : 1)) });
     renderMix();
 }
 
@@ -619,6 +669,7 @@ function renderMix() {
     const container = document.getElementById('mixContainer');
     if (currentMix.length === 0) {
         container.innerHTML = '<p class="text-gray-400 italic text-sm text-center">Toca los ingredientes arriba para empezar a mezclar...</p>';
+        updateTotalPrice();
         updateTotalVolume();
         return;
     }
@@ -649,18 +700,38 @@ function renderMix() {
         `;
         container.appendChild(row);
     });
+    updateTotalPrice();
     updateTotalVolume();
 }
 
 function updateMixAmount(index, val) {
     currentMix[index].amount = parseInt(val);
-    // Actualizamos solo el texto del span correspondiente para no re-renderizar todo el DOM
-    renderMix(); 
+    // Update the specific span for the amount
+    const amountSpan = document.querySelector(`#mixContainer div:nth-child(${index + 1}) .font-mono`);
+    if (amountSpan) {
+        amountSpan.textContent = `${currentMix[index].amount} ${currentMix[index].unit}`;
+    }
+    updateTotalPrice();
+    updateTotalVolume();
 }
 
 function removeFromMix(index) {
     currentMix.splice(index, 1);
     renderMix();
+}
+
+function calculateTotalPrice() {
+    let totalIngredientCost = currentMix.reduce((acc, item) => {
+        return acc + (item.amount * item.pricePerUnit);
+    }, 0);
+
+    let totalCost = totalIngredientCost + (selectedPackaging ? selectedPackaging.basePrice : 0);
+    return totalCost;
+}
+
+function updateTotalPrice() {
+    const priceSpan = document.getElementById('totalPrice');
+    priceSpan.textContent = `Bs. ${calculateTotalPrice().toFixed(2)}`;
 }
 
 function updateTotalVolume() {
@@ -683,12 +754,14 @@ document.getElementById('createForm').addEventListener('submit', function(e) {
     const name = document.getElementById('licorName').value;
     const instructions = document.getElementById('instructions').value;
     const ingredientList = currentMix.map(i => `${i.amount}${i.unit} de ${i.name}`).join(', ');
+    const finalPrice = calculateTotalPrice().toFixed(2);
 
     Swal.fire({
         title: '¡Creación Enviada!',
         html: `
             <div class="text-left bg-deep-black p-4 rounded border border-gold">
                 <p class="mb-2"><strong>Nombre:</strong> <span class="text-gold">${name}</span></p>
+                <p class="mb-2"><strong>Precio Estimado:</strong> <span class="text-gold">Bs. ${finalPrice}</span></p>
                 <p class="mb-2"><strong>Fórmula:</strong> ${ingredientList}</p>
                 <p class="mb-2"><strong>Envase:</strong> <span class="text-gold">${selectedPackaging.name} (${selectedPackaging.size})</span></p>
                 <p><strong>Nota:</strong> ${instructions}</p>
@@ -700,5 +773,22 @@ document.getElementById('createForm').addEventListener('submit', function(e) {
         color: '#fbbf24',
         confirmButtonColor: '#fbbf24'
     });
+    addToGlobalCart(`Personalizado: ${name}`, parseFloat(finalPrice), `Mezcla: ${ingredientList.substring(0, 30)}...`);
     closeCreateModal();
 });
+
+function finalCheckout() {
+    const total = globalCart.reduce((acc, item) => acc + item.price, 0);
+    Swal.fire({
+        title: '¡Pedido Finalizado!',
+        text: `El total de tu compra es Bs. ${total.toFixed(2)}. En breve nos contactaremos contigo para la entrega.`,
+        icon: 'success',
+        background: '#0d7377',
+        color: '#fbbf24',
+        confirmButtonColor: '#fbbf24'
+    }).then(() => {
+        globalCart = [];
+        updateGlobalCartUI();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
